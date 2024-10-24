@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+$font-stack: 'Montserrat', sans-serif;
+$primary-color:  #003844;
+$secondary-color: #058C42;
+$third-color: #f9f9f9;
+
+// Reset
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+// Menu del estilo
+html,
+body {
+	font-family: $font-stack;
+}
+
+h1 {
+	font-size: 2.5rem;
+}
+
+h2 {
+	font-size: 2rem;
+	text-transform: uppercase;
+	font-weight: 400;
+}
+
+h4 {
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+
+p {
+	font-size: 1rem;
+	margin: 10px 0;
+	line-height: 1.7em;
+	text-align: justify
+}
+
+a {
+	text-decoration: none;
+}
+
+// Uso de las clases
+.container {
+	margin: auto;
+	max-width: 1300px;
+	padding: 0 20px;
+}
+
+.large {
+	font-size: 18px;
+}
+
+.display-1 {
+	font-size: 4rem;
+}
+
+.btn {
+	display: inline-block;
+	font-size: 15px;
+	padding: 12px 23px;
+	cursor: pointer;
+	font-weight: bold;
+	letter-spacing: 1px;
+	border-radius: 4px;
+	&-dark {
+		background: $secondary-color;
+		border: 3px solid $secondary-color;
+		color: #fff;
+	}
+} //fin del .btn
+
+form {
+	label {
+		display: inline-block;
+		margin-bottom: 6px;
+	}
+	.form-group {
+		margin-bottom: 16px;
+		&-control {
+			width: 100%;
+			padding: 7px 12px;
+			font-size: 1rem;
+			line-height: 1.5;
+			background: $third-color;
+			border: none;
+			border-radius: 4px;
+		} //Fin form .form-group-control
+	} // Fin form .form-group
+	button {
+		width: 100%;
+	}
+} //fin form
+
+// Navbar
+#navbar {
+	height: 14vh;
+	background: $primary-color;
+	color: #fff;
+	overflow: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	a {
+		color: #fff;
+	}
+	.logo{
+		width: 275px;
+    	height: 65px;
+    	border: none;
+	}
+
+	ul {
+		list-style: none;
+		float: right;
+		li {
+			float: left;
+		}
+		li a {
+			display: block;
+			padding: 20px;
+			text-align: center;
+		}
+	}
+} //fin #navbar
+
+hr {
+    border: none;           
+    height:10px;            
+    background-color: $secondary-color; 
+    margin: 0px 0;         
+}
+
+// Showcase
+#showcase {
+	height: 95vh;
+	padding:125px 0;
+	background: url("/assets/images/Pacifico.jpeg");
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: cover;
+	
+	h1 {
+		width: 50%;
+	}
+	p {
+		width: 35%;
+		padding: 15px 0;
+		text-align: justify;
+	}
+}
+
+// objetivo
+#objetivo {
+	padding: 50px 0;
+	h2 {
+		text-align: center;
+		padding-bottom: 50px;
+	}
+	img {
+		width: 100%;
+	}
+
+	.objetivo-flex {
+		display: flex;
+		&-image {
+			flex: 1;
+		}
+		&-description {
+			flex: 1;
+			padding: 20px 40px;
+		}
+	}
+} //fin #objetivo
+
+// Metodologia
+#metodo {
+	padding: 50px 0;
+	background: $third-color;
+	h2 {
+		text-align: center;
+		padding-bottom: 10px;
+	}
+	p.large {
+		text-align: center;
+		padding-bottom: 50px;
+	}
+	.metodo-flex {
+		display: flex;
+		gap: 10px;
+		img {
+			height: 550px;
+		}
+		&-box {
+			background: #fff;
+			padding: 5px 2px;
+			text-align: center;
+			border-radius: 10px;
+			
+		}
+	}
+} //fin #metodo
+
+// Logros
+#logros {
+	padding: 50px 0;
+	background: $third-color;
+	h2 {
+		text-align: center;
+		padding-bottom: 10px;
+	}
+	p.large {
+		text-align: center;
+		padding-bottom: 50px;
+	}
+	.logros-flex {
+		display: flex;
+		gap: 10px;
+		img {
+			height: 40px;
+		}
+		&-box {
+			background: #fff;
+			padding: 50px 10px;
+			text-align: center;
+			border-radius: 20px;
+			h4 {
+				padding: 10px 0;
+			}
+		}
+	}
+} //fin #logros
+
+// Cifras Relevantes
+#cifras {
+	padding: 50px 0;
+	background: $third-color;
+	h2 {
+		text-align: center;
+		padding-bottom: 10px;
+	}
+	p.large {
+		text-align: center;
+		padding-bottom: 50px;
+	}
+	.cifras-flex {
+		display: flex;
+		gap: 10px;
+		img {
+			height: 40px;
+		}
+		&-box {
+			background: #fff;
+			padding: 50px 10px;
+			text-align: center;
+			border-radius: 20px;
+			h4 {
+				padding: 10px 0;
+			}
+		}
+	}
+} //fin #cifras
+
+// Contacto
+#contacto {
+	padding: 50px 0;
+	h2 {
+		text-align: center;
+		padding-bottom: 10px;
+	}
+	p.large {
+		text-align: center;
+		padding-bottom: 5px;
+	}
+	form {
+		width: 50%;
+		margin: 0 auto;
+	}
+}
+
+// Footer
+footer {
+	background: $primary-color;
+	text-align: center;
+	padding: 30px;
+}
+
+.socialIconos{
+    display: flex;
+    justify-content: center;
+}
+.socialIconos a{
+	text-decoration: none;
+	padding:  10px;
+	background-color: $secondary-color ;
+	margin: 10px;
+	border-radius: 50%;
+}
+
+.socialIconos a i{
+    font-size: 2em;
+    color: $third-color;
+    opacity: 0,9;
+}
+
+.socialIconos a:hover{
+    background-color: #111;
+    transition: 0.5s;
+}
+.socialIconos a:hover i{
+    color: white;
+    transition: 0.5s;
+}
+.footerNav ul li a{
+    color:white;
+    margin: 20px;
+   // text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5s;
+
+}
+.footerNav ul li a:hover{
+    opacity: 1;
+}
+footer .imagen-footer2{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 112px; 
+    margin-left: 10px; 
+	background: #fff;
+	border-radius: 10%;
+	
+}
+footer .imagen-footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 80px; 
+    margin-right: 10px; 
+}
+.container {
+    position: relative; 
+}
