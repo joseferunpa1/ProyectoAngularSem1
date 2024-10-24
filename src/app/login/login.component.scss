@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+$font-stack: 'Roboto', sans-serif;
+$primary-color: #003844;
+$secondary-color: #058C42;
+$third-color: #f9f9f9;
+
+// Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Contenedor principal para el login
+.login-wrapper {
+  background-image: url("/assets/images/login-background.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $font-stack;
+}
+
+// Estilos para el cuadro de login
+.login-box {
+  background: rgba($third-color, 0.9);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+}
+
+// Títulos
+h3 {
+  font-weight: 500;
+}
+
+// Estilos para el formulario
+form {
+  .form-group {
+    margin-bottom: 20px;
+
+    .form-label {
+      font-weight: 500; // Peso de la fuente
+    }
+
+    .form-control {
+      padding: 12px;
+      font-size: 1rem;
+      line-height: 1.5;
+      background: rgba($third-color, 0.9);
+      border: 2px solid $primary-color;
+      border-radius: 8px;
+      transition: border-color 0.3s;
+
+      &:focus {
+        outline: none;
+        border-color: $secondary-color;
+      }
+    }
+  }
+
+  button {
+    width: 100%;
+    background: $secondary-color;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+
+    &:hover {
+      background: darken($secondary-color, 10%);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  p {
+    color: $primary-color; // Color del texto
+    a {
+      color: $secondary-color; // Color del enlace
+      text-decoration: underline; // Subrayar el enlace
+      transition: color 0.3s;
+  
+      &:hover {
+        color: darken($secondary-color, 10%); // Cambio de color al pasar el mouse
+      }
+    }
+  }
+  
+}
