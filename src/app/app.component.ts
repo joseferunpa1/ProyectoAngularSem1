@@ -5,13 +5,12 @@ import { HomeComponent } from './home/home.component';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, HomeComponent, RouterLink],
-  //templateUrl: './app.component.html',
   template: `
     <router-outlet></router-outlet> <!-- Punto de entrada para las rutas -->
   `,
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'Act1';
+  title = 'GI2T';
 }
 
