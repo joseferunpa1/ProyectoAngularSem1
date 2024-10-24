@@ -1,0 +1,132 @@
+@media (max-width: 700px) {
+	// Uso de las clases
+	.display-1 {
+		font-size: 4rem;
+	}
+
+	/* Navbar */
+	#navbar {
+		height: 100%;
+		.logo {
+			float: none;
+			text-align: center;
+		}
+
+        .menu-toggle {
+            display: block; /* Muestra el botón del menú en pantallas pequeñas */
+            cursor: pointer;
+            z-index: 1001; 
+      
+            .bar {
+              display: block;
+              width: 25px;
+              height: 3px;
+              margin: 5px auto;
+              background-color: white;
+            }
+          }
+      
+          ul {
+            display: none; /* Oculta el menú en pantallas pequeñas */
+            flex-direction: column;
+            width: 100%;
+            background: #003844;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            padding: 10px 0;
+          }
+      
+          ul.active {
+            display: flex; /* Muestra el menú al hacer clic */
+          }
+      
+          li {
+            margin: 10px 0;
+            text-align: center;
+          }
+	} //fin #navbar
+
+	hr {
+		border: none;           
+		height:10px;            
+		background-color: #058C42; 
+		margin: 0px 0;         
+	}
+
+	// Showcase
+	#showcase {
+		background-position: center;
+		background-size: contain; 
+		height: auto; 
+		padding: 50px 0; 
+
+		h1, p {
+			width: 100%; 
+			text-align: center; 
+		}
+	} //fin #showcase
+
+	// Objetivo
+	#objeivo {
+		padding: 50px 0;
+		.objetivo-flex {
+			
+			flex-direction: column;
+			&-description {
+				text-align: center;
+				padding: 20px 0;
+			}
+		} //End #objeivo .ojeivo-flex
+	} //End #objetivo
+
+	// Metodologia
+	#metodo {
+		padding: 50px 0;
+		.metodo-flex {
+			flex-direction: column;
+		} //fin #metodo .metodo-flex
+	} //fin #metodo
+
+    // Logros
+	#logros {
+		padding: 50px 0;
+		.logros-flex {
+			flex-direction: column;
+		} //fin #logros .logros -flex
+	} //fin #logros
+
+    // Cifras Relevantes
+	#cifras {
+		padding: 50px 0;
+		.cifras-flex {
+			flex-direction: column;
+		} //fin #cifras .cifras-flex
+	} //fin #cifras
+
+	// Contacto
+	#contacto {
+		padding: 80px 0;
+		form {
+			width: 100%;
+		}
+	} //fin #contacto
+
+
+    //footer
+	footer .imagen-footer,
+	footer .imagen-footer2 {
+		position: static; 
+		display: block;
+		margin: 10px auto; 
+		height: 40px; 
+	}
+
+	.container {
+		text-align: center; 
+	}
+
+	.socialIconos {
+		margin-top: 20px; 
+	}//fin footer
+}

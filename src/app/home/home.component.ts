@@ -1,18 +1,38 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit,} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { Chart, registerables } from 'chart.js';
 
 @Component({
   selector: 'app-home',
   standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements AfterViewInit {
+
+  isMenuOpen = false;
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  selectOption(targetId: string) {
+    this.isMenuOpen = false;
+    
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
   ngAfterViewInit() {
     // Registrar todas las escalas, elementos y plugins que se necesiten
     Chart.register(...registerables);
     this.createCharts();
   }
+
+  
 
   createCharts() {
     // Gráfico de Barras - Evaluación de Instituciones Educativas

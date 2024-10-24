@@ -10,17 +10,22 @@
     <header id="mainheader">
         <nav id="navbar">
             <div class="container">
-                <img src="assets/images/Unpa.png" alt="" class="logo">
-                <ul>
-                    <li><a href="#mainheader">Inicio</a></li>
-                    <li><a href="#objetivo">Objetivo</a></li>
-                    <li><a href="#metodo">Metodologia</a></li>
-                    <li><a href="#logros">Logros</a></li>
-                    <li><a href="#cifras">Cifras Relevantes</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
+              <img src="assets/images/Unpa.png" alt="Logo" class="logo">
+              <div class="menu-toggle" id="mobile-menu" (click)="toggleMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+              </div>
+              <ul id="nav-links" [class.active]="isMenuOpen">
+                <li><a href="#mainheader" (click)="selectOption('mainheader')">Inicio</a></li>
+                <li><a href="#objetivo" (click)="selectOption('objetivo')">Objetivo</a></li>
+                <li><a href="#metodo" (click)="selectOption('metodo')">Metodología</a></li>
+                <li><a href="#logros" (click)="selectOption('logros')">Logros</a></li>
+                <li><a href="#cifras" (click)="selectOption('cifras')">Cifras Relevantes</a></li>
+                <li><a href="#contacto" (click)="selectOption('contacto')">Contacto</a></li>
+              </ul>
             </div>
-        </nav>
+          </nav>
         <hr>
         <div id="showcase">
             <div class="container">

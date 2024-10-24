@@ -107,6 +107,12 @@ form {
 	a {
 		color: #fff;
 	}
+	.container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
 	.logo{
 		width: 275px;
     	height: 65px;
@@ -114,19 +120,25 @@ form {
 	}
 
 	ul {
-		list-style: none;
-		float: right;
-		li {
-			float: left;
-		}
-		li a {
-			display: block;
-			padding: 20px;
-			text-align: center;
-		}
-	}
-} //fin #navbar
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
 
+        li {
+            margin-left: 20px;
+
+            a {
+                text-decoration: none;
+                color: #fff;
+                font-size: 16px;
+            }
+        }
+	} 
+	.menu-toggle {
+		display: none; /* Oculto por defecto */
+	}
+}//fin #navbar
 hr {
     border: none;           
     height:10px;            
@@ -138,7 +150,7 @@ hr {
 #showcase {
 	height: 95vh;
 	padding:125px 0;
-	background: url("/assets/images/Pacifico.jpeg");
+	background: url("../../assets/images/Pacifico.jpeg");
 	background-repeat: no-repeat;
 	background-position: top center;
 	background-size: cover;
@@ -317,7 +329,7 @@ footer {
 .footerNav ul li a{
     color:white;
     margin: 20px;
-   // text-decoration: none;
+    text-decoration: none;
     font-size: 1.3em;
     opacity: 0.7;
     transition: 0.5s;
@@ -330,7 +342,7 @@ footer .imagen-footer2{
     position: absolute;
     left: 0;
     bottom: 0;
-    height: 112px; 
+    height: 80px; 
     margin-left: 10px; 
 	background: #fff;
 	border-radius: 10%;
@@ -346,3 +358,4 @@ footer .imagen-footer {
 .container {
     position: relative; 
 }
+@import 'mobile';
