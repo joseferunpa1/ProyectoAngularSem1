@@ -19,6 +19,7 @@
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
     "act1": "file:",
+    "boostrap": "^2.0.0",
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.5",
     "rxjs": "~7.8.0",
