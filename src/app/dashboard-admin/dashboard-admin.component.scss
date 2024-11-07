@@ -1,0 +1,173 @@
+// Sidebar
+.sidebar {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 60px;  // Ajusta el espacio para que esté debajo del header
+    left: 0;
+    background-color: #003844; // Fondo en color principal
+    color: white;
+    padding-top: 20px;
+    z-index: 5; // Asegura que el sidebar esté encima del fondo
+  
+    .sidebar-header {
+      padding: 20px 0;
+      h3 {
+        font-size: 22px;
+        font-weight: 600;
+        color: #fff;
+      }
+    }
+  
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+  
+      li {
+        padding: 15px;
+        transition: background-color 0.3s ease;
+  
+        &:hover {
+          background-color: #058C42; // Color secundario al pasar el cursor
+        }
+  
+        a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: flex; // Usamos flexbox para alinear el ícono y el texto
+            align-items: center; // Centra el ícono y el texto verticalmente
+            padding: 10px 0;
+            text-align: left; // Alineamos el texto a la izquierda
+    
+            i {
+              margin-right: 20px; // Añadimos espacio entre el ícono y el texto
+            }
+  
+          &:hover {
+            color: #f9f9f9; // Color blanco al pasar el cursor
+          }
+        }
+      }
+    }
+  }
+  
+ // Header de navegación
+header.navbar {
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #003844; // Cambio aquí: el color ahora es el mismo que el del menú lateral
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  
+    .navbar-brand {
+      font-size: 22px;
+      font-weight: bold;
+      color: #f9f9f9; // Blanco para el logo
+    }
+  
+    .navbar-nav .nav-link {
+      color: #f9f9f9; // Color de los enlaces en blanco
+  
+      &:hover {
+        color: #058C42; // El color verde al pasar el cursor para combinar con la paleta
+      }
+    }
+  }
+  
+  
+  // Main Content Area
+  .content {
+    margin-left: 250px;  // Deja espacio para el sidebar
+    margin-top: 60px;    // Agrega un margen para el header fijo
+    padding: 20px;
+    background-color: #f9f9f9; // Fondo en color claro
+    color: #333; // Color de texto general
+  
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #003844; // Títulos en color principal
+    }
+  
+    .card {
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+      background-color: #ffffff; // Fondo blanco para las tarjetas
+  
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
+  
+      .card-body {
+        padding: 2rem;
+      }
+  
+      .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #003844; // Títulos en color principal
+      }
+  
+      .card-text {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+  
+      .btn {
+        padding: 12px 24px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        border-radius: 5px;
+  
+        &.btn-primary {
+          background-color: #007bff; // Azul para el botón de "Gestionar Usuarios"
+          color: #fff; // Texto blanco en los botones
+          border: none;
+  
+          &:hover {
+            background-color: #0056b3; // Azul más oscuro al pasar el cursor
+          }
+        }
+  
+        &.btn-success {
+          background-color: #058C42; // Verde para el botón de "Gestionar Encuestas"
+          color: #fff;
+          border: none;
+  
+          &:hover {
+            background-color: #046c31; // Verde más oscuro al pasar el cursor
+          }
+        }
+      }
+    }
+  }
+  
+  // Media Queries para pantallas más pequeñas
+  @media (max-width: 768px) {
+    .wrapper {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      position: relative;
+      height: auto;
+      padding-bottom: 20px;
+    }
+  
+    .content {
+      margin-left: 0;
+      margin-top: 60px;  // Ajusta para el header fijo en dispositivos pequeños
+    }
+  
+    header.navbar {
+      position: relative;
+    }
+  }
+  

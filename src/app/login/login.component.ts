@@ -26,7 +26,4 @@ export class LoginComponent {
     }
   }
 
-  goToSignIn() {
-    this.router.navigate(['/register']);
-  }
 }
