@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 
 
-export class LoginComponent {
+export class LoginComponent{
   public username: string = ''; // Define username como propiedad pública
   public password: string = ''; // Define password como propiedad pública
 
@@ -20,7 +21,8 @@ export class LoginComponent {
     // Lógica de autenticación aquí
     if (this.username && this.password) {
       // Redireccionar a otro componente
-      this.router.navigate(['dashboard-admin']);
+        this.router.navigate(['/dashboard-admin']);
+    
     } else {
       alert("Por favor, ingresa tu usuario y contraseña.");
     }
