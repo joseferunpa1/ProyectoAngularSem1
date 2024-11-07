@@ -44,6 +44,16 @@ a {
 	text-decoration: none;
 }
 
+.login-icon {
+	margin-left: auto; /* Mueve el ícono al extremo derecho */
+	cursor: pointer;
+  }
+  
+  .login-icon i {
+	font-size: 24px;
+	color: $third-color; /* Cambia el color según el tema de tu navbar */
+  }
+
 // Uso de las clases
 .container {
 	margin: auto;

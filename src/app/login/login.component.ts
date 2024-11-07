@@ -11,22 +11,21 @@ import { Router } from '@angular/router';
 
 
 export class LoginComponent {
-  email: string = '';
-  password: string = '';
+  public username: string = ''; // Define username como propiedad pública
+  public password: string = ''; // Define password como propiedad pública
 
   constructor(private router: Router) {}
 
   onSubmit() {
-    if (this.email && this.password) {
-      console.log('Email:', this.email);
-      console.log('Password:', this.password);
-      // Aquí puedes agregar la lógica para autenticar al usuario
+    // Lógica de autenticación aquí
+    if (this.username && this.password) {
+      // Redireccionar a otro componente
+      this.router.navigate(['/dashboard']);
     } else {
-      console.log('Por favor ingrese su email y contraseña');
+      alert("Por favor, ingresa tu usuario y contraseña.");
     }
   }
 
-  goToSignIn() {
-    this.router.navigate(['/register']);
-  }
 }
+
+

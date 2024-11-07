@@ -2,6 +2,9 @@ import { Component, AfterViewInit,} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Chart, registerables } from 'chart.js';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-home',
@@ -11,6 +14,13 @@ import { Chart, registerables } from 'chart.js';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements AfterViewInit {
+  
+  constructor(private router: Router) {} // Inyecta el servicio Router
+
+  navigateToLogin() {
+    this.router.navigate(['/login']); // Asegúrate de que esta ruta lleve al componente de login
+  }
+  
 
   isMenuOpen = false;
   toggleMenu() {
