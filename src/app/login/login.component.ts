@@ -20,7 +20,7 @@ export class LoginComponent {
     // Lógica de autenticación aquí
     if (this.username && this.password) {
       // Redireccionar a otro componente
-      this.router.navigate(['/dashboard-admin']);
+      this.router.navigate(['dashboard-admin']);
     } else {
       alert("Por favor, ingresa tu usuario y contraseña.");
     }
