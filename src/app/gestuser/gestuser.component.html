@@ -4,148 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Personas</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #003844;
-            color: #333;
-        }
-
-        header {
-            background-image: url('');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 80px 20px;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.8em;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        }
-
-        .container {
-            margin: 40px auto;
-            width: 90%;
-            max-width: 1000px;
-            background-color: #fff;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-            padding: 30px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 30px;
-        }
-
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-
-        th, td {
-            text-align: left;
-            padding: 15px;
-            font-size: 16px;
-        }
-
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        tr:hover {
-            background-color: #f1f1f1;
-        }
-
-        /* Ajustando la columna de Nombre */
-        th:nth-child(1), td:nth-child(1) {
-            width: 20%; /* Definir un ancho mínimo para la columna de nombre */
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        /* Asegurando que las otras columnas tengan un buen espacio */
-        th:nth-child(2), td:nth-child(2) {
-            width: 15%;
-        }
-
-        th:nth-child(3), td:nth-child(3) {
-            width: 15%;
-        }
-
-        th:nth-child(4), td:nth-child(4) {
-            width: 20%;
-        }
-
-        th:nth-child(5), td:nth-child(5) {
-            width: 15%;
-        }
-
-        th:nth-child(6), td:nth-child(6) {
-            width: 10%;
-        }
-
-        th:nth-child(7), td:nth-child(7) {
-            width: 15%;
-        }
-
-        form {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        input {
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            flex: 1 1 calc(33.333% - 20px);
-            font-size: 14px;
-        }
-
-        input[type="number"] {
-            max-width: 120px;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        h2 {
-            font-size: 1.8em;
-            color: #333;
-            margin-top: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="./gestuser.component.scss">
 </head>
 <body>
-
     <header>
-        <h1>User Gestion</h1>
+        <h1>User Gestor</h1>
     </header>
 
     <div class="container">
@@ -190,7 +53,7 @@
             </tbody>
         </table>
 
-        <h2>Agregar/Editar Persona</h2>
+        <h2>Creación y Edición de Usuario</h2>
         <form id="formularioPersona">
             <input type="text" id="nombre" placeholder="Nombre" required>
             <input type="text" id="apellido" placeholder="Apellido" required>
@@ -261,3 +124,4 @@
 
 </body>
 </html>
+
