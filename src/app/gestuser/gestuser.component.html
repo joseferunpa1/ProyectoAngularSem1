@@ -1,1 +1,263 @@
-<p>gestuser works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Personas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #003844;
+            color: #333;
+        }
+
+        header {
+            background-image: url('');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .container {
+            margin: 40px auto;
+            width: 90%;
+            max-width: 1000px;
+            background-color: #fff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 15px;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Ajustando la columna de Nombre */
+        th:nth-child(1), td:nth-child(1) {
+            width: 20%; /* Definir un ancho mínimo para la columna de nombre */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Asegurando que las otras columnas tengan un buen espacio */
+        th:nth-child(2), td:nth-child(2) {
+            width: 15%;
+        }
+
+        th:nth-child(3), td:nth-child(3) {
+            width: 15%;
+        }
+
+        th:nth-child(4), td:nth-child(4) {
+            width: 20%;
+        }
+
+        th:nth-child(5), td:nth-child(5) {
+            width: 15%;
+        }
+
+        th:nth-child(6), td:nth-child(6) {
+            width: 10%;
+        }
+
+        th:nth-child(7), td:nth-child(7) {
+            width: 15%;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        input {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            flex: 1 1 calc(33.333% - 20px);
+            font-size: 14px;
+        }
+
+        input[type="number"] {
+            max-width: 120px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #333;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>User Gestion</h1>
+    </header>
+
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Cédula</th>
+                    <th>Rol</th>
+                    <th>Institución</th>
+                    <th>Edad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tablaPersonas">
+                <!-- Ejemplo de registros -->
+                <tr>
+                    <td>Juan</td>
+                    <td>Pérez</td>
+                    <td>12345678</td>
+                    <td>Estudiante</td>
+                    <td>Caldas</td>
+                    <td>16</td>
+                    <td>
+                        <button onclick="editarPersona(this)">Editar</button>
+                        <button onclick="eliminarPersona(this)">Eliminar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>María</td>
+                    <td>García</td>
+                    <td>87654321</td>
+                    <td>Egresado</td>
+                    <td>UA</td>
+                    <td>17</td>
+                    <td>
+                        <button onclick="editarPersona(this)">Editar</button>
+                        <button onclick="eliminarPersona(this)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Agregar/Editar Persona</h2>
+        <form id="formularioPersona">
+            <input type="text" id="nombre" placeholder="Nombre" required>
+            <input type="text" id="apellido" placeholder="Apellido" required>
+            <input type="text" id="cedula" placeholder="Cédula" required>
+            <input type="text" id="colegio" placeholder="Colegio" required>
+            <input type="text" id="jornada" placeholder="Jornada" required>
+            <input type="number" id="edad" placeholder="Edad" required>
+            <button type="button" onclick="agregarOEditarPersona()">Guardar</button>
+        </form>
+    </div>
+
+    <script>
+        let filaEditada = null;
+
+        function agregarOEditarPersona() {
+            const nombre = document.getElementById('nombre').value;
+            const apellido = document.getElementById('apellido').value;
+            const cedula = document.getElementById('cedula').value;
+            const colegio = document.getElementById('colegio').value;
+            const jornada = document.getElementById('jornada').value;
+            const edad = document.getElementById('edad').value;
+
+            if (filaEditada) {
+                filaEditada.cells[0].textContent = nombre;
+                filaEditada.cells[1].textContent = apellido;
+                filaEditada.cells[2].textContent = cedula;
+                filaEditada.cells[3].textContent = colegio;
+                filaEditada.cells[4].textContent = jornada;
+                filaEditada.cells[5].textContent = edad;
+                filaEditada = null;
+            } else {
+                const tabla = document.getElementById('tablaPersonas');
+                const nuevaFila = tabla.insertRow();
+                nuevaFila.innerHTML = `
+                    <td>${nombre}</td>
+                    <td>${apellido}</td>
+                    <td>${cedula}</td>
+                    <td>${colegio}</td>
+                    <td>${jornada}</td>
+                    <td>${edad}</td>
+                    <td>
+                        <button onclick="editarPersona(this)">Editar</button>
+                        <button onclick="eliminarPersona(this)">Eliminar</button>
+                    </td>
+                `;
+            }
+
+            document.getElementById('formularioPersona').reset();
+        }
+
+        function editarPersona(boton) {
+            filaEditada = boton.parentElement.parentElement;
+            document.getElementById('nombre').value = filaEditada.cells[0].textContent;
+            document.getElementById('apellido').value = filaEditada.cells[1].textContent;
+            document.getElementById('cedula').value = filaEditada.cells[2].textContent;
+            document.getElementById('colegio').value = filaEditada.cells[3].textContent;
+            document.getElementById('jornada').value = filaEditada.cells[4].textContent;
+            document.getElementById('edad').value = filaEditada.cells[5].textContent;
+        }
+
+        function eliminarPersona(boton) {
+            if (confirm("¿Estás seguro de que deseas eliminar esta persona?")) {
+                const fila = boton.parentElement.parentElement;
+                fila.remove();
+            }
+        }
+    </script>
+
+</body>
+</html>
