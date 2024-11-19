@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { RouterOutlet } from '@angular/router';
 import { UsersModel } from '../model/Users';
 
+
 @Component({
   selector: 'app-gestuser',
   standalone: true,
@@ -12,7 +13,7 @@ import { UsersModel } from '../model/Users';
 })
 export class GestuserComponent {
 
-  userForm: FormGroup = new FormGroup({}); // FormGroup to manage the employee form controls
+  userForm: FormGroup = new FormGroup({}); // FormGroup to manage the employee form controlsy
   userObj: UsersModel = new UsersModel(); // Object to hold the employee data
   userList: UsersModel[] = []; // Array to store the list of employees
 
@@ -48,17 +49,25 @@ export class GestuserComponent {
   // Method to save 
   onSave() {
     const oldData = localStorage.getItem("UserData");
-    if (oldData != null) { 
+    
+    if (oldData != null) {
       const parseData = JSON.parse(oldData);
-      this.userForm.controls['userId'].setValue(parseData.length + 1); // Assigning a new ID
-      this.userList.unshift(this.userForm.value); // Adding the new employee to the top of the list
+  
+      // Asigna el ID como último ID + 1
+      const lastId = parseData.length > 0 ? parseData[0].userId : 1;
+      this.userForm.controls['userId'].setValue(lastId + 1);
+      this.userList.unshift(this.userForm.value);
     } else {
-      this.userForm.controls['userId'].setValue(1); // Start with ID 1 if no data exists
+      // Si no hay datos previos, el ID inicial será 2
+      this.userForm.controls['userId'].setValue(2);
       this.userList.unshift(this.userForm.value);
     }
-    localStorage.setItem("UserData", JSON.stringify(this.userList)); // Save the updated list to localStorage
-    this.reset(); // Reset the form after saving
+  
+    // Guardar datos actualizados en localStorage
+    localStorage.setItem("UserData", JSON.stringify(this.userList));
+    this.reset(); // Resetear formulario después de guardar
   }
+  
 
   // Method to edit 
   onEdit(item: UsersModel) {
@@ -81,6 +90,9 @@ export class GestuserComponent {
     }
     localStorage.setItem("UserData", JSON.stringify(this.userList)); // Save the updated list to localStorage
     this.reset(); // Reset the form after updating
+
+    this.userObj = new UsersModel(); // Set the selected employee data in the form
+    this.createForm();
   }
 
   // Method to delete 

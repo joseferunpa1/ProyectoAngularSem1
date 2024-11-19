@@ -56,11 +56,7 @@
                 </div>
               </div>
               <div class="col-6">
-                <label for="userId" class="form-label">User-Id</label>
-                <input type="text" id="userId" formControlName="userId" class="form-control" readonly>
-              </div>
-              <div class="col-6">
-                <label for="city" class="form-label">City</label>
+                <label for="city" class="form-label">Ciudad</label>
                 <input type="text" id="city" formControlName="city" class="form-control">
               </div>
               <div class="col-6">
@@ -100,10 +96,11 @@
               </div>
               <div class="col-6 text-center">
                 @if (userForm.controls['userId'].value == '1') {
-                  <button type="button" class="btn btn-success w-100" [disabled]="userForm.invalid" (click)="onSave()">SAVE user</button>
+                  <button type="button" class="btn btn-success w-100" [disabled]="userForm.invalid" (click)="onSave()">SAVE USUARIO</button>
                 } @else {
-                  <button type="button" class="btn btn-warning w-100" [disabled]="userForm.invalid" (click)="onUpdate()">UPDATE user</button>
+                  <button type="button" class="btn btn-warning w-100" [disabled]="userForm.invalid" (click)="onUpdate()">UPDATE USUARIO</button>
                 }
+                
               </div>
             </div>
           </form>
