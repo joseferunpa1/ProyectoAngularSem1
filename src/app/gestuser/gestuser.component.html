@@ -1,127 +1,114 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Personas</title>
-    <link rel="stylesheet" href="./gestuser.component.scss">
-</head>
-<body>
-    <header>
-        <h1>User Gestor</h1>
-    </header>
-
-    <div class="container">
-        <table>
-            <thead>
+<div class="row">
+    <div class="col-lg-8 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">
+          <h6 class="mb-0">Users List</h6>
+        </div>
+        <div class="card-body p-3">
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead class="bg-light">
                 <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Cédula</th>
-                    <th>Rol</th>
-                    <th>Institución</th>
-                    <th>Edad</th>
-                    <th>Acciones</th>
+                  <th>Sr No</th>
+                  <th>Name</th>
+                  <th>Contact No</th>
+                  <th>Email-Id</th>
+                  <th class="text-center">Action</th>
                 </tr>
-            </thead>
-            <tbody id="tablaPersonas">
-                <!-- Ejemplo de registros -->
-                <tr>
-                    <td>Marlon</td>
-                    <td>Pérez</td>
-                    <td>303054</td>
-                    <td>Estudiante</td>
-                    <td>Caldas</td>
-                    <td>20</td>
-                    <td>
-                        <button onclick="editarPersona(this)">Editar</button>
-                        <button onclick="eliminarPersona(this)">Eliminar</button>
+              </thead>
+              <tbody>
+                @for (item of userList; track $index) {
+                  <tr>
+                    <td>{{$index + 1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.contactNo}}</td>
+                    <td>{{item.emailId}}</td>
+                    <td class="text-center">
+                      <button class="btn btn-primary btn-sm" (click)="onEdit(item)">EDIT</button>
+                      <button class="btn btn-danger btn-sm mx-2" (click)="onDelete(item.userId)">DELETE</button>
                     </td>
-                </tr>
-                <tr>
-                    <td>Dross</td>
-                    <td>García</td>
-                    <td>5479852</td>
-                    <td>Egresado</td>
-                    <td>UA</td>
-                    <td>60</td>
-                    <td>
-                        <button onclick="editarPersona(this)">Editar</button>
-                        <button onclick="eliminarPersona(this)">Eliminar</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2>Creación y Edición de Usuario</h2>
-        <form id="formularioPersona">
-            <input type="text" id="nombre" placeholder="Nombre" required>
-            <input type="text" id="apellido" placeholder="Apellido" required>
-            <input type="text" id="cedula" placeholder="Cédula" required>
-            <input type="text" id="colegio" placeholder="Colegio" required>
-            <input type="text" id="jornada" placeholder="Jornada" required>
-            <input type="number" id="edad" placeholder="Edad" required>
-            <button type="button" onclick="agregarOEditarPersona()">Guardar</button>
-        </form>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <script>
-        let filaEditada = null;
-
-        function agregarOEditarPersona() {
-            const nombre = document.getElementById('nombre').value;
-            const apellido = document.getElementById('apellido').value;
-            const cedula = document.getElementById('cedula').value;
-            const colegio = document.getElementById('colegio').value;
-            const jornada = document.getElementById('jornada').value;
-            const edad = document.getElementById('edad').value;
-
-            if (filaEditada) {
-                filaEditada.cells[0].textContent = nombre;
-                filaEditada.cells[1].textContent = apellido;
-                filaEditada.cells[2].textContent = cedula;
-                filaEditada.cells[3].textContent = colegio;
-                filaEditada.cells[4].textContent = jornada;
-                filaEditada.cells[5].textContent = edad;
-                filaEditada = null;
-            } else {
-                const tabla = document.getElementById('tablaPersonas');
-                const nuevaFila = tabla.insertRow();
-                nuevaFila.innerHTML = `
-                    <td>${nombre}</td>
-                    <td>${apellido}</td>
-                    <td>${cedula}</td>
-                    <td>${colegio}</td>
-                    <td>${jornada}</td>
-                    <td>${edad}</td>
-                    <td>
-                        <button onclick="editarPersona(this)">Editar</button>
-                        <button onclick="eliminarPersona(this)">Eliminar</button>
-                    </td>
-                `;
-            }
-
-            document.getElementById('formularioPersona').reset();
-        }
-
-        function editarPersona(boton) {
-            filaEditada = boton.parentElement.parentElement;
-            document.getElementById('nombre').value = filaEditada.cells[0].textContent;
-            document.getElementById('apellido').value = filaEditada.cells[1].textContent;
-            document.getElementById('cedula').value = filaEditada.cells[2].textContent;
-            document.getElementById('colegio').value = filaEditada.cells[3].textContent;
-            document.getElementById('jornada').value = filaEditada.cells[4].textContent;
-            document.getElementById('edad').value = filaEditada.cells[5].textContent;
-        }
-
-        function eliminarPersona(boton) {
-            if (confirm("¿Estás seguro de que deseas eliminar esta persona?")) {
-                const fila = boton.parentElement.parentElement;
-                fila.remove();
-            }
-        }
-    </script>
-
-</body>
-</html>
-
+  
+    <div class="col-lg-4">
+      <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">
+          <h6 class="mb-0">New User</h6>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="userForm">
+            <div class="row g-3">
+              <div class="col-12">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name" formControlName="name" class="form-control">
+                <div class="text-danger">
+                  @if (userForm.controls['name'].touched) {
+                    @if (userForm.controls['name'].errors?.['required']) {
+                      <span>Name is Reuired</span>
+                    }
+                  }
+                </div>
+              </div>
+              <div class="col-6">
+                <label for="userId" class="form-label">User-Id</label>
+                <input type="text" id="userId" formControlName="userId" class="form-control" readonly>
+              </div>
+              <div class="col-6">
+                <label for="city" class="form-label">City</label>
+                <input type="text" id="city" formControlName="city" class="form-control">
+              </div>
+              <div class="col-6">
+                <label for="state" class="form-label">State</label>
+                <input type="text" id="state" formControlName="state" class="form-control">
+              </div>
+              <div class="col-6">
+                <label for="emailId" class="form-label">Email-Id</label>
+                <input type="text" id="emailId" formControlName="emailId" class="form-control">
+              </div>
+              <div class="col-6">
+                <label for="contactNo" class="form-label">Contact No</label>
+                <input type="text" id="contactNo" formControlName="contactNo" class="form-control">
+              </div>
+              <div class="col-6">
+                <label for="password" class="form-label">password</label>
+                <input type="text" id="password" formControlName="password" class="form-control">
+                <div class="text-danger">
+                  @if (userForm.controls['password'].touched) {
+                    @if (userForm.controls['password'].errors?.['required']) {
+                      <span> password  is Reuired</span>
+                    }
+                    @if (userForm.controls['password'].errors?.['minlength']) {
+                      <span>Mininum 6 digit password is Reuired</span>
+                    }
+                  }
+                </div>
+              </div>
+              <div class="col-12">
+                <label for="address" class="form-label">Address</label>
+                <textarea id="address" formControlName="address" class="form-control" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-6 text-center">
+                <button type="reset" class="btn btn-secondary w-100" type="button" (click)="reset()">RESET</button>
+              </div>
+              <div class="col-6 text-center">
+                @if (userForm.controls['userId'].value == '1') {
+                  <button type="button" class="btn btn-success w-100" [disabled]="userForm.invalid" (click)="onSave()">SAVE user</button>
+                } @else {
+                  <button type="button" class="btn btn-warning w-100" [disabled]="userForm.invalid" (click)="onUpdate()">UPDATE user</button>
+                }
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
