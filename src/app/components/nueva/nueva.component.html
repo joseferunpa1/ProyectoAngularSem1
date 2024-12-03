@@ -1,0 +1,56 @@
+<form [formGroup]="formAnswers">
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="nameAnswer">Nombre de la encuesta</label>
+      <input id="nameAnswer" class="form-control" formControlName="nameAnswer" type="text" />
+    </div>
+  </div>
+
+  <!-- separador -->
+  <hr class="divider" />
+
+  <div>
+    <div class="newAnswer" (click)="newAnswer()">
+      <svg class="bi bi-plus-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path
+          fill-rule="evenodd"
+          d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z"
+        />
+      </svg>
+      Agregar pregunta
+    </div>
+    <div formArrayName="preguntas">
+      <div *ngFor="let p of preguntas.controls; index as i" [id]="i + 1" class="containerAccordion">
+        <div [formGroup]="getPregunta(i)" class="accordion">
+          <div class="accordion-header">
+            <h5>Pregunta n° {{ i + 1 }}</h5>
+            <small>{{ p.get('pregunta')?.value }}</small>
+            <button type="button" mat-button (click)="openModal(i); itemValue(i)">
+              <svg class="bi bi-trash-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+              </svg>
+              Eliminar
+            </button>
+            <app-modal [isVisible]="isModalVisible"(close)="closeModal()">
+            </app-modal>
+          
+          </div>
+          <div class="accordion-body">
+            <label for="pregunta">Pregunta</label>
+            <input id="pregunta" class="form-control" formControlName="pregunta" type="text" />
+            <label for="tipo">Tipo de Respuesta</label>
+            <select id="tipo" class="form-control" formControlName="tipo">
+              <option value="0">Si/No</option>
+              <option value="1">1 al 5</option>
+              <option value="2">1 al 10</option>
+              <option value="3">Pregunta Abierta</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="save()">Guardar</button>
+  <div *ngIf="validated" class="alert alert-danger" role="alert">Todos los datos son necesarios.</div>
+  <div *ngIf="dateSave" class="alert alert-success" role="alert">Datos guardados correctamente.</div>
+</form>

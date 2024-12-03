@@ -27,7 +27,7 @@
 <div class="sidebar">
     <ul class="list-unstyled">
       <li>
-        <a href="#" class="nav-link text-white">
+        <a routerLink="/home" class="nav-link text-white">
           <i class="fas fa-home"></i> Inicio
         </a>
       </li>
@@ -57,7 +57,7 @@
             <div class="card-body text-center">
               <h5 class="card-title text-success">Gestionar Encuestas</h5>
               <p class="card-text">Crea, edita y administra encuestas. Visualiza los resultados y gestiona las opciones de cada encuesta.</p>
-              <a href="#" class="btn btn-success">Gestionar</a>
+              <button class="btn btn-primary" (click)="navigateTo()">Gestionar Encuestas</button>
             </div>
           </div>
         </div>

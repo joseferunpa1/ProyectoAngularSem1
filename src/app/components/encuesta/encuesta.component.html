@@ -1,0 +1,44 @@
+<div class="container contaEncuesta">
+    <div class="nameEncuesta">
+      {{ encuesta.nameAnswer }}
+    </div>
+    <div class="cantidadPreguntas">
+      {{ contador }} de {{ encuesta.preguntas.length }}
+    </div>
+    <div class="contentEncuesta">
+      <div class="pregunta">{{ pregunta.pregunta }}</div>
+      <div class="respuesta">
+        <!-- Opciones Sí/No -->
+        <div *ngIf="pregunta.tipo === '0'">
+          <label>
+            <input type="radio" name="respuesta" [(ngModel)]="respuesta" value="0" /> No
+          </label>
+          <label>
+            <input type="radio" name="respuesta" [(ngModel)]="respuesta" value="1" /> Sí
+          </label>
+        </div>
+        
+        <!-- Escala 1-5 -->
+        <div *ngIf="pregunta.tipo === '1'">
+          <label *ngFor="let value of [0, 1, 2, 3, 4]">
+            <input type="radio" name="respuesta" [(ngModel)]="respuesta" [value]="value" /> {{ value + 1 }}
+          </label>
+        </div>
+        
+        <!-- Escala 1-10 -->
+        <div *ngIf="pregunta.tipo === '2'">
+          <label *ngFor="let value of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]">
+            <input type="radio" name="respuesta" [(ngModel)]="respuesta" [value]="value" /> {{ value + 1 }}
+          </label>
+        </div>
+
+        <!-- Pregunta abierta -->
+        <div *ngIf="pregunta.tipo === '3'">
+          <label for="respuesta">Escribe tu respuesta:</label>
+          <textarea id="respuesta" name="respuesta" [(ngModel)]="respuesta" rows="3" cols="40"></textarea>
+        </div>
+      </div>
+      <button (click)="save()">Guardar</button>
+    </div>
+  </div>
+  

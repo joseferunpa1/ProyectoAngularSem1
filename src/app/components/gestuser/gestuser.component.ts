@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
-import { UsersModel } from '../model/Users';
+import { UsersModel } from '../../model/Users';
 
 
 @Component({
   selector: 'app-gestuser',
   standalone: true,
-  imports: [RouterOutlet, ReactiveFormsModule],
+  imports: [ ReactiveFormsModule],
   templateUrl: './gestuser.component.html',
   styleUrl: './gestuser.component.scss'
 })

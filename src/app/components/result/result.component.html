@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="container">
+    <div class="header-result">
+      <h1>{{preguntas.nameAnswer}}</h1>
+    </div>
+    <div class="sub-header-result">
+      <h3>Total de encuestados: {{respuestas.length}}</h3>
+    </div>
+
+    <div *ngFor="let pregunta of preguntas?.preguntas; let i = index">
+      <!-- Respuestas abiertas -->
+      <div *ngIf="pregunta.tipo === '3'">
+        <h4>Respuestas abiertas para: {{ pregunta.pregunta }}</h4>
+        <ul>
+          <li *ngFor="let respuesta of getOpenAnswers(i)">{{ respuesta }}</li>
+        </ul>
+      </div>
+    
+      <!-- Gráficas para respuestas numéricas -->
+      <div *ngIf="pregunta.tipo !== '3'">
+        <canvas #myChart class="myChart" id="myChart" width="400" height="400" style="display: inline; margin-right: 5em;"></canvas>
+      </div>
+    </div>
+    
+  </div>
+</div>

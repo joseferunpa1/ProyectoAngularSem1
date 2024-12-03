@@ -16,5 +16,8 @@ export class DashboardAdminComponent {
     this.router.navigate(['/gestuser']);
   }
   
+  navigateTo(){
+    this.router.navigate(['/dashboard'])
+  }
 
 }

@@ -1,0 +1,192 @@
+// Variables generales
+$primary-color: #003844;
+$secondary-color: #058c42;
+$light-gray: #f9f9f9;
+$dark-gray: #444;
+$border-radius: 8px;
+$max-width-form: 600px;
+
+form {
+  margin: 20px auto;
+  padding: 20px;
+  background: $light-gray;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: $max-width-form;
+
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    .form-group {
+      flex: 1;
+      min-width: 280px; // Esto ayuda a hacer que los campos no sean tan largos
+      display: flex;
+      flex-direction: column;
+
+      label {
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: $dark-gray;
+      }
+
+      input,
+      select {
+        padding: 10px;
+        border: 1px solid $dark-gray;
+        border-radius: $border-radius;
+        font-size: 14px;
+        color: $dark-gray;
+
+        // Limitar el ancho de los campos de texto
+        max-width: 100%;
+        width: auto;
+
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+          box-shadow: 0 0 4px rgba(0, 56, 68, 0.4);
+        }
+      }
+    }
+  }
+
+  .divider {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid $dark-gray;
+  }
+
+  .newAnswer {
+    display: inline-flex;
+    align-items: center;
+    color: $secondary-color;
+    cursor: pointer;
+    font-weight: bold;
+    gap: 8px;
+
+    svg {
+      fill: $secondary-color;
+    }
+
+    &:hover {
+      text-decoration: underline;
+      svg {
+        fill: darken($secondary-color, 10%);
+      }
+    }
+  }
+
+  .containerAccordion {
+    margin-bottom: 16px;
+
+    .accordion {
+      border: 1px solid $dark-gray;
+      border-radius: $border-radius;
+      overflow: hidden;
+
+      .accordion-header {
+        background: $primary-color;
+        color: white;
+        padding: 12px 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+
+        h5 {
+          margin: 0;
+        }
+        small {
+          display: block; // Se asegura de que se comporte como un bloque independiente
+          max-width: 60%; // Limita el ancho del texto
+          overflow: hidden; // Oculta el desbordamiento si es necesario
+          white-space: normal; // Permite que el texto se divida en líneas
+          word-wrap: break-word; // Divide el texto en palabras si excede el espacio
+          margin-top: 4px; // Espaciado opcional entre el título y la pregunta
+          font-size: 0.85em; // Opcional: ajustar tamaño para claridad
+        }
+
+        button {
+          
+          background: none;
+          border: none;
+          color: white;
+          cursor: pointer;
+
+          &:hover {
+            color: lighten($primary-color, 20%);
+          }
+        }
+      }
+
+      .accordion-body {
+        padding: 16px;
+        background: white;
+        display: flex;
+        flex-direction: column; // Asegura que los elementos estén en columna
+        gap: 16px; // Espaciado entre los elementos
+        justify-content: space-between;
+      
+        label {
+          display: block;
+          margin-bottom: 8px;
+          font-weight: bold;
+          color: $dark-gray;
+        }
+      
+        input,
+        select {
+          max-width: 100%; // Asegura que no exceda el ancho del contenedor
+          width: auto; // Permite que se ajuste automáticamente
+          padding: 10px; // Espaciado interno
+          border: 1px solid $dark-gray; // Borde estético
+          border-radius: $border-radius; // Esquinas redondeadas
+          font-size: 14px; // Tamaño de fuente claro
+          box-sizing: border-box; // Incluye padding y borde en el ancho total
+        }
+      
+        // Ajuste estético para que los campos no toquen los bordes del contenedor
+        input {
+          margin-bottom: 16px; // Espacio debajo de cada campo
+        }
+      }
+      
+    }
+  }
+
+  button {
+    padding: 10px 20px;
+    background: $primary-color;
+    color: white;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+
+    &:hover {
+      background: darken($primary-color, 10%);
+    }
+  }
+
+  .alert {
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: $border-radius;
+    font-size: 14px;
+
+    &.alert-danger {
+      background: #ffe5e5;
+      color: #d9534f;
+      border: 1px solid #d9534f;
+    }
+
+    &.alert-success {
+      background: #e5ffeb;
+      color: #5cb85c;
+      border: 1px solid #5cb85c;
+    }
+  }
+}
