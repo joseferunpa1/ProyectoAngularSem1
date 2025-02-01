@@ -131,3 +131,21 @@ footer .imagen-footer {
 .container {
     position: relative; 
 }
+
+@media (max-width: 700px){
+  footer .imagen-footer,
+	footer .imagen-footer2 {
+		position: static; 
+		display: block;
+		margin: 10px auto; 
+		height: 40px; 
+	}
+
+	.container {
+		text-align: center; 
+	}
+
+	.socialIconos {
+		margin-top: 20px; 
+	}//fin footer
+}
