@@ -2,6 +2,7 @@
 $primary-color: #003844;
 $secondary-color: #058C42;
 $third-color: #f9f9f9;
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
 // Estilo global
 body {
@@ -66,4 +67,31 @@ body {
 
 .container-fluid {
   padding: 0px;
+}
+
+
+
+// Estilo para el h1
+h1 {
+  font-family: 'Dancing Script', cursive; // Fuente cursiva
+  font-size: 4rem; // Tamaño grande para destacar
+  font-weight: 700; // Grosor de la fuente
+  color: $secondary-color; // Usar el color secundario
+  text-align: center;
+  margin-top: 20px;
+  animation: bounce 2s infinite; // Animación de rebote
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); // Sombra suave
+}
+
+// Animación de rebote
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
 }

@@ -1,9 +1,48 @@
+// Variables de color
+$primary-color: #003844;
+$secondary-color: #058C42;
+$third-color: #f9f9f9;
+
 /* Estilos generales */
 body {
     background-color: #f8f9fa; /* Fondo suave */
     font-family: 'Montserrat', sans-serif;
   }
-  
+
+  // Navbar
+.navbar {
+  background-color: $primary-color; // Color de fondo principal
+  color: white;
+  height: 60px; // Altura estándar para dashboards
+  display: flex;
+  align-items: center; // Centra verticalmente los elementos
+  padding: 0 20px; // Espaciado interno a los lados
+  position: fixed; // Fija el header en la parte superior
+  top: 0;
+  left: 0;
+  width: 100%; // Ancho completo
+  z-index: 10; // Prioridad sobre el contenido
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); // Sombra decorativa
+
+  .navbar-title {
+    font-size: 30px; // Tamaño adecuado para dashboards
+    font-weight: bold;
+    text-transform: uppercase; // Texto en mayúsculas
+    letter-spacing: 1px; // Espaciado entre letras
+    margin-left: 10px; // Desplaza ligeramente el título a la izquierda
+  }
+}
+
+.row {
+  flex-grow: 1;
+  padding: 20px;
+  margin-top: 50px; // Ajusta el contenido para evitar superposición
+
+}
+
+.row .g-3{
+  margin-top: 0px;
+}
   /* Estilos para las tarjetas */
   .card {
     border-radius: 8px;
@@ -21,7 +60,7 @@ body {
   
   .card-body {
     background-color: #ffffff;
-    padding: 2rem;
+    padding: 0;
     border-radius: 0 0 8px 8px;
   }
   
