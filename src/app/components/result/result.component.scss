@@ -1,0 +1,99 @@
+// Variables generales (ya definidas anteriormente)
+$primary-color: #003844;     // Color principal (usado en los encabezados y botones)
+$secondary-color: #058c42;   // Color secundario
+$light-gray: #f9f9f9;        // Color de fondo claro
+$dark-gray: #444;            // Color de texto oscuro
+$border-radius: 8px;         // Radio de borde para hacer bordes redondeados
+$max-width-form: 600px;      // Máxima anchura para formularios
+
+// Estilos para el componente de resultados
+.row {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  background: white;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.header-result {
+  text-align: center;
+  margin-bottom: 20px;
+
+  h1 {
+    font-size: 28px;
+    color: $primary-color;
+    margin: 0;
+  }
+}
+
+.sub-header-result {
+  text-align: center;
+  margin-bottom: 30px;
+
+  h3 {
+    font-size: 20px;
+    color: $dark-gray;
+    margin: 0;
+  }
+}
+
+
+// Estilos para las preguntas y respuestas
+.pregunta-container {
+    margin-bottom: 30px;
+  
+    h4 {
+      font-size: 18px;
+      color: $primary-color;
+      margin-bottom: 15px;
+    }
+  
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+  
+      li {
+        background: $light-gray;
+        padding: 10px;
+        border-radius: $border-radius;
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: $dark-gray;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+// Estilos para las gráficas
+canvas.myChart {
+  max-width: 100%;
+  height: auto !important; // Asegura que la gráfica sea responsive
+  margin: 20px 0;
+  display: block;
+}
+
+// Responsividad
+@media screen and (max-width: 768px) {
+  .header-result h1 {
+    font-size: 24px;
+  }
+
+  .sub-header-result h3 {
+    font-size: 18px;
+  }
+
+
+
+  canvas.myChart {
+    width: 100% !important;
+    height: auto !important;
+  }
+}

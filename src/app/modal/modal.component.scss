@@ -4,8 +4,9 @@ $secondary-color: #058c42;   // Color secundario
 $light-gray: #f9f9f9;        // Color de fondo claro
 $dark-gray: #444;            // Color de texto oscuro
 $border-radius: 8px;         // Radio de borde para hacer bordes redondeados
-$max-width-form: 600px;       // Máxima anchura para formularios
+$max-width-form: 600px;      // Máxima anchura para formularios
 
+// Fondo oscuro del modal
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -20,19 +21,24 @@ $max-width-form: 600px;       // Máxima anchura para formularios
   animation: fadeIn 0.3s ease;
 }
 
+// Contenedor del modal
 .modal {
   background-color: white;
   border-radius: $border-radius;
-  max-width: 500px;
-  width: 100%;
+  max-width: 400px;          // Ancho máximo del modal (más pequeño)
+  width: 90%;                // Ancho relativo para responsividad
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   animation: slideUp 0.3s ease;
+  position: relative;        // Asegura que el modal esté posicionado correctamente
+  max-height: 35vh;          // Altura máxima del modal (80% del viewport)
+  overflow: hidden;          // Evita que el contenido se desborde
 }
 
+// Encabezado del modal
 .modal-header {
   display: flex;
   justify-content: space-between;
@@ -60,12 +66,17 @@ $max-width-form: 600px;       // Máxima anchura para formularios
   }
 }
 
+// Cuerpo del modal
 .modal-body {
   margin-top: 12px;
   font-size: 14px;
   color: $dark-gray;
+  flex-grow: 1;              // Permite que el cuerpo ocupe el espacio disponible
+  overflow-y: auto;          // Añade scroll si el contenido es muy largo
+  padding-right: 8px;        // Espacio para el scroll
 }
 
+// Pie del modal
 .modal-footer {
   margin-top: 16px;
   display: flex;

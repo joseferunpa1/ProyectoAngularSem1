@@ -7,6 +7,9 @@
     </div>
     <div class="contentEncuesta">
       <div class="pregunta">{{ pregunta.pregunta }}</div>
+      <!-- separador -->
+  <hr class="divider" />
+      
       <div class="respuesta">
         <!-- Opciones Sí/No -->
         <div *ngIf="pregunta.tipo === '0'">

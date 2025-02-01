@@ -61,6 +61,16 @@ newAnswer(){
     pregunta: new FormControl(null, Validators.required),
     tipo: new FormControl(null, Validators.required)
   }));
+
+  this.scrollToBottom();
+}
+scrollToBottom() {
+  setTimeout(() => {
+    window.scrollTo({
+      top: document.body.scrollHeight, // Desplaza al final de la página
+      behavior: 'smooth' // Añade un efecto de desplazamiento suave
+    });
+  }, 100); // Pequeño retraso para asegurar que el DOM se actualice
 }
 
   save(){

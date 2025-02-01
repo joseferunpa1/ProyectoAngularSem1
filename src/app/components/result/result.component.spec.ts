@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NgFor } from '@angular/common';
 import { ResultComponent } from './result.component';
 
 describe('ResultComponent', () => {
@@ -8,7 +8,7 @@ describe('ResultComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ResultComponent]
+      imports: [ResultComponent, NgFor]
     })
     .compileComponents();
 

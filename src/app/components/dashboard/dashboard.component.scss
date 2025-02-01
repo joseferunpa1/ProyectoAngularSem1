@@ -55,7 +55,7 @@ body {
   flex-grow: 1;
   padding: 20px;
   margin-top: 70px; // Ajusta el contenido para evitar superposición
-  padding: 20px;
+
 }
 
 .conTouter {
@@ -64,13 +64,6 @@ body {
   margin-top: 70px;
 }
 
-// Media Queries
-@media (max-width: 768px) {
-  .sidebar {
-    width: 200px;
-  }
-
-  .container {
-    margin-left: 0;
-  }
+.container-fluid {
+  padding: 0px;
 }

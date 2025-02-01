@@ -65,6 +65,7 @@ form {
     cursor: pointer;
     font-weight: bold;
     gap: 8px;
+    margin-bottom: 15px;
 
     svg {
       fill: $secondary-color;
@@ -96,7 +97,7 @@ form {
         
 
         h5 {
-          margin: 0;
+          margin: 5px;
         }
         small {
           display: block; // Se asegura de que se comporte como un bloque independiente
@@ -104,6 +105,7 @@ form {
           overflow: hidden; // Oculta el desbordamiento si es necesario
           white-space: normal; // Permite que el texto se divida en líneas
           word-wrap: break-word; // Divide el texto en palabras si excede el espacio
+          margin-left: 10px;
           margin-top: 4px; // Espaciado opcional entre el título y la pregunta
           font-size: 0.85em; // Opcional: ajustar tamaño para claridad
         }
