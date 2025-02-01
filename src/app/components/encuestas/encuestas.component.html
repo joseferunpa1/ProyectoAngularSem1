@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row barLogin">
+      <div class="title">Sistema de encuesta</div>
+      <div class="login">
+        <button class="mat-raised-button" (click)="ingresar()">Ingresar</button>
+      </div>
+    </div>
+    
+    <div *ngFor="let encuesta of encuestas">
+      <div class="example-card">
+        <div class="mat-card-header">
+          <div class="mat-card-title">{{ encuesta.nameAnswer }}</div>
+        </div>
+        <div class="mat-card-content nPreguntasEncuestas">
+          <p>El total de preguntas por esta encuesta es de: {{ encuesta.preguntas.length }}</p>
+        </div>
+        <div class="mat-card-actions botones">
+          <button class="mat-raised-button" color="primary" (click)="iniciar(encuesta.ID)">Iniciar</button>
+        </div>
+      </div>
+    </div>
+    
+    <div *ngIf="encuestas.length === 0" class="example-card">
+      <div class="mat-card-content noEncuestas">
+        <p>No se encontró listado de encuestas</p>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,33 @@
+<div class="login-container">
+  <h2>Iniciar Sesión</h2>
+  <form (submit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">Usuario</label>
+      <input type="text" id="username" name="username" [(ngModel)]="username" required />
+    </div>
+    <div class="form-group">
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password" required />
+    </div>
+    <button type="submit">Iniciar Sesión</button>
+  </form>
+</div>
+<hr>
+    <footer>
+        <div class="container">
+            <img src="assets/images/logogi2t.svg" alt="" class="imagen-footer2">
+
+            <div class="socialIconos">
+                <a href="https://www.facebook.com/UnipacificoOmarbaronamurillo"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/unipacifico?igsh=amM0dTZ1aHh1cHg2"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/home?lang=es"><i class="fa-brands fa-twitter"></i></a>
+                <a href="http://www.unipacifico.edu.co/"><i class="fa-brands fa-google-plus"></i></a>
+                <a href="https://www.youtube.com/@UnidelPacifico"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <div class="footerNav">
+                <ul><li><a href="#mainheader">INICIO</a></li></ul>
+            </div>
+            <img src="assets/images/inge.svg" alt="" class="imagen-footer">
+        </div>
+    </footer>
+    <hr>

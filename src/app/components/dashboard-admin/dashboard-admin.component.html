@@ -1,0 +1,67 @@
+<!-- Header -->
+<header class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Admin Dashboard</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-user-circle"></i> Admin
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Perfil</a></li>
+              <li><a class="dropdown-item" href="#">Configuración</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+</header>
+  
+<!-- Sidebar -->
+<div class="sidebar">
+    <ul class="list-unstyled">
+      <li>
+        <a routerLink="/home" class="nav-link text-white">
+          <i class="fas fa-home"></i> Inicio
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="container py-5">
+      <h2 class="mb-4">Bienvenido al Panel de Administración</h2>
+      <div class="row">
+        <!-- Card para Gestionar Usuarios -->
+        <div class="col-md-6 mb-4">
+          <div class="card shadow-lg border-primary">
+            <div class="card-body text-center">
+              <h5 class="card-title text-primary">Gestionar Usuarios</h5>
+              <p class="card-text">Administra los usuarios registrados en la plataforma. Agrega, edita o elimina usuarios fácilmente.</p>
+              <button class="btn btn-primary" (click)="navigateToAnother()">Gestionar Usuarios</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card para Gestionar Encuestas -->
+        <div class="col-md-6 mb-4">
+          <div class="card shadow-lg border-success">
+            <div class="card-body text-center">
+              <h5 class="card-title text-success">Gestionar Encuestas</h5>
+              <p class="card-text">Crea, edita y administra encuestas. Visualiza los resultados y gestiona las opciones de cada encuesta.</p>
+              <button class="btn btn-primary" (click)="navigateTo()">Gestionar Encuestas</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

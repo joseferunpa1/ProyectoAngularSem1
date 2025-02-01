@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { Component, } from '@angular/core';
+import { RouterLink, RouterOutlet,  } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent],
-  templateUrl: './app.component.html',
+  imports: [RouterOutlet,  ],
+  template: `
+    <router-outlet></router-outlet> <!-- Punto de entrada para las rutas -->
+  `,
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'Act1';
+  title = 'GI2T';
 }
-

@@ -1,0 +1,15 @@
+<div *ngIf="isVisible" class="modal-backdrop">
+  <div class="modal">
+    <div class="modal-header">
+      <h5>Eliminar pregunta</h5>
+      <button (click)="closeModal()" class="close-btn">×</button>
+    </div>
+    <div class="modal-body">
+      ¿Seguro que desea eliminar la pregunta?
+    </div>
+    <div class="modal-footer">
+      <button (click)="closeModal()" class="btn btn-secondary">No</button>
+      <button (click)="deleteAnswer()" class="btn btn-danger">Sí</button>
+    </div>
+  </div>
+</div>

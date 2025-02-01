@@ -18,10 +18,13 @@
     "@angular/platform-browser": "^18.2.0",
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
+    "@fortawesome/fontawesome-free": "^6.6.0",
     "act1": "file:",
+    "boostrap": "^2.0.0",
+    "bootstrap": "^5.3.3",
     "chart.js": "^4.4.5",
     "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
+    "tslib": "^2.8.1",
     "zone.js": "~0.14.10"
   },
   "devDependencies": {

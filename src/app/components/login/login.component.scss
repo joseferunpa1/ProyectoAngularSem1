@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+$primary-color: #003844;
+$secondary-color: #058C42;
+$third-color: #f9f9f9;
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 76vh;
+  background-color: $third-color;
+
+  h2 {
+    color: $primary-color;
+    margin-bottom: 1rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 2rem;
+    background-color: $primary-color;
+    border-radius: 8px;
+    box-shadow: 0 16px 16px rgba(0, 0, 0, 0.2);
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+
+      label {
+        color: $third-color;
+        margin-bottom: 0.5rem;
+      }
+
+      input {
+        padding: 0.5rem;
+        border: 1px solid $secondary-color;
+        border-radius: 4px;
+        background-color: $third-color;
+        color: $primary-color;
+      }
+    }
+
+    button {
+      padding: 0.5rem;
+      color: $third-color;
+      background-color: $secondary-color;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: darken($secondary-color, 10%);
+      }
+    }
+  }
+}
+
+// Footer
+footer {
+	background: $primary-color;
+	text-align: center;
+	padding: 20px;
+}
+hr {
+  border: none;           
+  height:10px;            
+  background-color:$secondary-color;
+  margin: 0px 0;         
+}
+.socialIconos{
+    display: flex;
+    justify-content: center;
+}
+.socialIconos a{
+	text-decoration: none;
+	padding:  10px;
+	background-color: $secondary-color ;
+	margin: 10px;
+	border-radius: 50%;
+}
+
+.socialIconos a i{
+    font-size: 2em;
+    color: $third-color;
+    opacity: 0,9;
+}
+
+.socialIconos a:hover{
+    background-color: #111;
+    transition: 0.5s;
+}
+.socialIconos a:hover i{
+    color: white;
+    transition: 0.5s;
+}
+.footerNav ul li a{
+    color:white;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5s;
+
+}
+.footerNav ul li a:hover{
+    opacity: 1;
+}
+footer .imagen-footer2{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 80px; 
+    margin-left: 10px; 
+	background: #fff;
+	border-radius: 10%;
+	
+}
+footer .imagen-footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 80px; 
+    margin-right: 10px; 
+}
+.container {
+    position: relative; 
+}
+
+@media (max-width: 700px){
+  footer .imagen-footer,
+	footer .imagen-footer2 {
+		position: static; 
+		display: block;
+		margin: 10px auto; 
+		height: 40px; 
+	}
+
+	.container {
+		text-align: center; 
+	}
+
+	.socialIconos {
+		margin-top: 20px; 
+	}//fin footer
+}

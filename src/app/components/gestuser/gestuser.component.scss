@@ -1,0 +1,164 @@
+/* Estilos generales */
+body {
+    background-color: #f8f9fa; /* Fondo suave */
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Estilos para las tarjetas */
+  .card {
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 20px;
+  }
+  
+  .card-header {
+    background-color: #28a745; /* Color de fondo para el header */
+    color: white;
+    padding: 1rem;
+    border-radius: 8px 8px 0 0;
+    font-weight: bold;
+  }
+  
+  .card-body {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0 0 8px 8px;
+  }
+  
+  /* Estilo para la tabla */
+  .table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .table th {
+    background-color: #f1f1f1;
+    color: #495057;
+    font-weight: bold;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .table-bordered {
+    border: 1px solid #ddd;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Estilo para los botones */
+  .btn {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 4px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+  }
+  
+  .btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+  }
+  
+  .btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+  }
+  
+  .btn-sm {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+  
+  /* Estilo para los formularios */
+  .form-label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #495057;
+  }
+  
+  .form-control {
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    font-size: 14px;
+    padding: 10px;
+  }
+  
+  .form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.3);
+  }
+  
+  /* Estilo para los mensajes de error */
+  .text-danger {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  /* Estilo para las filas de formulario */
+  .g-3 .col-6 {
+    margin-bottom: 15px;
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .col-lg-8, .col-lg-4 {
+      width: 100%;
+    }
+  
+    .card-body {
+      padding: 1.5rem;
+    }
+  
+    .btn {
+      font-size: 12px;
+      padding: 6px 12px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .btn-sm {
+      font-size: 10px;
+    }
+  }
+  

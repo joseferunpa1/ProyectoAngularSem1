@@ -1,0 +1,98 @@
+/* Estilo global para las tarjetas */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 15px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    .card-header {
+      padding: 10px 15px;
+      background-color: #003844;
+      color: #fff;
+      border-radius: 8px 8px 0 0;
+      h3 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: bold;
+      }
+    }
+    
+    .card-content {
+      padding: 15px;
+      p {
+        font-size: 1rem;
+        color: #333;
+      }
+    }
+    
+    .card-actions {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      
+      .btn {
+        display: flex;
+        align-items: center;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background-color 0.3s ease;
+        
+        &.btn-danger {
+          background-color: #e57373;
+          color: #fff;
+          
+          &:hover {
+            background-color: #d32f2f;
+          }
+        }
+        
+        &.btn-primary {
+          background-color: #058C42;
+          color: #fff;
+          
+          &:hover {
+            background-color: #007b28;
+          }
+        }
+        
+        &.btn-success {
+          background-color: #4CAF50;
+          color: #fff;
+          
+          &:hover {
+            background-color: #388e3c;
+          }
+        }
+  
+        svg {
+          margin-right: 8px;
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+    
+    /* Estilo cuando no hay encuestas */
+    .noEncuestas {
+      padding: 20px;
+      text-align: center;
+      color: #777;
+    }
+  }
+  
+  /* Estilo para botones adicionales */
+  .resultButton {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    color: #003844;
+  
+    &:hover {
+      background-color: #f1f1f1;
+    }
+  }
+  

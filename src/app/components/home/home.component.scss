@@ -44,6 +44,16 @@ a {
 	text-decoration: none;
 }
 
+.login-icon {
+	margin-left: auto; /* Mueve el ícono al extremo derecho */
+	cursor: pointer;
+  }
+  
+  .login-icon i {
+	font-size: 24px;
+	color: $third-color; /* Cambia el color según el tema de tu navbar */
+  }
+
 // Uso de las clases
 .container {
 	margin: auto;
@@ -107,6 +117,12 @@ form {
 	a {
 		color: #fff;
 	}
+	.container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
 	.logo{
 		width: 275px;
     	height: 65px;
@@ -114,23 +130,29 @@ form {
 	}
 
 	ul {
-		list-style: none;
-		float: right;
-		li {
-			float: left;
-		}
-		li a {
-			display: block;
-			padding: 20px;
-			text-align: center;
-		}
-	}
-} //fin #navbar
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
 
+        li {
+            margin-left: 20px;
+
+            a {
+                text-decoration: none;
+                color: #fff;
+                font-size: 16px;
+            }
+        }
+	} 
+	.menu-toggle {
+		display: none; /* Oculto por defecto */
+	}
+}//fin #navbar
 hr {
     border: none;           
     height:10px;            
-    background-color: $secondary-color; 
+    background-color:$secondary-color;
     margin: 0px 0;         
 }
 
@@ -138,7 +160,7 @@ hr {
 #showcase {
 	height: 95vh;
 	padding:125px 0;
-	background: url("/assets/images/Pacifico.jpeg");
+	background: url("../../../assets/images/Pacifico.jpeg");
 	background-repeat: no-repeat;
 	background-position: top center;
 	background-size: cover;
@@ -317,7 +339,7 @@ footer {
 .footerNav ul li a{
     color:white;
     margin: 20px;
-   // text-decoration: none;
+    text-decoration: none;
     font-size: 1.3em;
     opacity: 0.7;
     transition: 0.5s;
@@ -330,7 +352,7 @@ footer .imagen-footer2{
     position: absolute;
     left: 0;
     bottom: 0;
-    height: 112px; 
+    height: 80px; 
     margin-left: 10px; 
 	background: #fff;
 	border-radius: 10%;
@@ -346,3 +368,4 @@ footer .imagen-footer {
 .container {
     position: relative; 
 }
+@import 'mobile';
