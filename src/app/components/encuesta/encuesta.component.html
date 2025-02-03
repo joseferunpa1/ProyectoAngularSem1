@@ -1,4 +1,12 @@
+<nav class="navbar">
+  <div>Encuesta</div>
+</nav>
+
 <div class="container contaEncuesta">
+  <div class="welcome-message">
+    <h2>¡Bienvenido!</h2>
+    <p>Puedes responder a esta encuesta de forma <strong>anónima</strong>. Tus respuestas son valiosas para nosotros y ayudarán a mejorar nuestros servicios.</p>
+  </div>
     <div class="nameEncuesta">
       {{ encuesta.nameAnswer }}
     </div>
@@ -44,4 +52,8 @@
       <button (click)="save()">Guardar</button>
     </div>
   </div>
-  
+  <div>
+    <footer>
+      <app-footer></app-footer>
+    </footer>
+  </div>

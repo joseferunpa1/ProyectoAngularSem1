@@ -1,0 +1,97 @@
+$primary-color:  #003844;
+$secondary-color: #058C42;
+$third-color: #f9f9f9;
+
+// Footer
+footer {
+	background: $primary-color;
+	text-align: center;
+	padding: 30px;
+    position: relative;
+    box-sizing: border-box; // Asegura que el padding no sobresalga
+    overflow: hidden; // Evita que cualquier contenido se desborde fuera del footer
+    width: 100%; // Hace que ocupe el 100% del ancho disponible
+    height: 140px; // Define una altura fija de 200px, ajusta según lo que necesites
+    border-top-left-radius: 15px; // Bordes redondeados en la parte superior izquierda
+    border-top-right-radius: 15px; // Bordes redondeados en la parte superior derecha
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+.socialIconos{
+    display: flex;
+    justify-content: center;
+}
+.socialIconos a{
+	text-decoration: none;
+	padding:  10px;
+	background-color: $secondary-color ;
+	margin: 10px;
+	border-radius: 50%;
+}
+
+.socialIconos a i{
+    font-size: 2em;
+    color: $third-color;
+    opacity: 0,9;
+}
+
+.socialIconos a:hover{
+    background-color: #111;
+    transition: 0.5s;
+}
+.socialIconos a:hover i{
+    color: white;
+    transition: 0.5s;
+}
+
+.footerNav ul li a{
+    color:white;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5s;
+
+}
+.footerNav ul li a:hover{
+    opacity: 1;
+}
+footer .imagen-footer2{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 80px; 
+    margin-bottom: 30px;
+    margin-left: 10px; 
+	background: #fff;
+	border-radius: 10%;
+	
+}
+footer .imagen-footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 80px; 
+    margin-bottom: 30px;
+    margin-right: 10px; 
+}
+
+@media screen and (max-width: 768px) {
+
+    footer .imagen-footer,
+	footer .imagen-footer2 {
+		position: static; 
+		display: block;
+		margin: 10px auto; 
+		height: 40px; 
+	}
+    .socialIconos{
+        padding-top: 10px;
+    }
+} 
+    

@@ -74,7 +74,7 @@ $max-width-form: 600px;      // Máxima anchura para formularios
 
 // Estilos para las gráficas
 canvas.myChart {
-  max-width: 100%;
+  max-width: 50%;
   height: auto !important; // Asegura que la gráfica sea responsive
   margin: 20px 0;
   display: block;
@@ -90,10 +90,8 @@ canvas.myChart {
     font-size: 18px;
   }
 
-
-
   canvas.myChart {
-    width: 100% !important;
+    width: 20% !important;
     height: auto !important;
   }
 }

@@ -134,6 +134,7 @@ header.navbar {
             background-color: #0056b3; // Azul más oscuro al pasar el cursor
           }
         }
+
   
         &.btn-success {
           background-color: #058C42; // Verde para el botón de "Gestionar Encuestas"
@@ -159,6 +160,7 @@ header.navbar {
       position: relative;
       height: auto;
       padding-bottom: 20px;
+      top: auto;
     }
   
     .content {

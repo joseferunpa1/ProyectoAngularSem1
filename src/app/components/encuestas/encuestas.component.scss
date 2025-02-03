@@ -36,6 +36,9 @@ $max-width-form: 600px;
     }
 
     .login {
+         display: flex;
+         justify-content: flex-end; // Esto alinea el botón a la derecha
+         align-items: center; // Opcional: Centra el botón verticalmente si es necesario
       button {
         padding: 10px 20px;
         background: $secondary-color;
@@ -137,7 +140,8 @@ $max-width-form: 600px;
 
     .login {
       button {
-        width: 20%;
+        width: 25%;
+        
       }
     }
   }

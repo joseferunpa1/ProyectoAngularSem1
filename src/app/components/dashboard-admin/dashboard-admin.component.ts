@@ -17,7 +17,7 @@ export class DashboardAdminComponent {
   }
   
   navigateTo(){
-    this.router.navigate(['/dashboard'])
+    this.router.navigate(['/dashboard/list']);
   }
 
 }

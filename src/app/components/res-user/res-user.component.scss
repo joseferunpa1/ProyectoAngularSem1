@@ -1,0 +1,63 @@
+.thank-you-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #003844, #058C42);
+    padding: 20px;
+  }
+  
+  .thank-you-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    animation: fadeInUp 1s ease-in-out;
+  }
+  
+  .check-icon {
+    color: #058C42;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #003844;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 20px;
+  }
+
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .thank-you-card {
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+    .home-button {
+      padding: 10px 20px;
+    }
+  }
+  

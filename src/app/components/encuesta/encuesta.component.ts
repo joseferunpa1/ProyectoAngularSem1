@@ -2,11 +2,12 @@ import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ActionsService } from '../../services/actions.service';
 import { NgIf,NgFor } from '@angular/common';
-import { FormsModule } from '@angular/forms';  // Importa FormsModule
+import { FormsModule } from '@angular/forms';
+import { FooterComponent } from "../footer/footer.component";  // Importa FormsModule
 @Component({
   selector: 'app-encuesta',
   standalone: true,
-  imports: [NgIf,NgFor,FormsModule],
+  imports: [NgIf, NgFor, FormsModule, FooterComponent],
   templateUrl: './encuesta.component.html',
   styleUrl: './encuesta.component.scss'
 })
@@ -55,7 +56,7 @@ export class EncuestaComponent implements OnInit {
     if (this.contador > this.encuesta.preguntas.length){
       this.action.setRespuesta({ID: this.ID, respuestas: this.respuestas });
       alert('Respuesta guardada exitosamente.');
-      this.ruta.navigate(['/encuestas']);
+      this.ruta.navigate(['/res-user']);
     }
  
 }

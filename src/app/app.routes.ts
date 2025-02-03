@@ -11,7 +11,7 @@ import { EditComponent } from './components/edit/edit.component';
 import { EncuestasComponent } from './components/encuestas/encuestas.component';
 import { EncuestaComponent } from './components/encuesta/encuesta.component';
 import { ResultComponent } from './components/result/result.component';
-
+import { ResUserComponent } from './components/res-user/res-user.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -20,6 +20,7 @@ export const routes: Routes = [
   { path: 'gestuser', component: GestuserComponent },
   {path: 'encuestas', component: EncuestasComponent},
   {path: 'encuesta/:ID', component: EncuestaComponent},
+  {path: 'res-user', component: ResUserComponent},
   {path: 'dashboard', component: DashboardComponent, children: [
     {path: 'new', component: NuevaComponent},
     {path: 'list', component: ListComponent},
