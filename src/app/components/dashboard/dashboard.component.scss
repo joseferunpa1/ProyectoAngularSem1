@@ -25,39 +25,110 @@ body {
 
 // Sidebar
 
-// Navbar
-.navbar {
-  background-color: $primary-color; // Color de fondo principal
-  color: white;
-  height: 60px; // Altura estándar para dashboards
+// header
+
+header{
+  z-index: 200;
+  width: 100%;
   display: flex;
-  align-items: center; // Centra verticalmente los elementos
-  padding: 0 20px; // Espaciado interno a los lados
-  position: fixed; // Fija el header en la parte superior
+  justify-content: space-between;
+  padding: 0.45rem 2rem 0.45rem 1.27rem;
+  border-color: #f9f9f9;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%; // Ancho completo
-  z-index: 10; // Prioridad sobre el contenido
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); // Sombra decorativa
-
-  .navbar-title {
-    font-size: 20px; // Tamaño adecuado para dashboards
-    font-weight: bold;
-    text-transform: uppercase; // Texto en mayúsculas
-    letter-spacing: 1px; // Espaciado entre letras
-    margin-left: 10px; // Desplaza ligeramente el título a la izquierda
-  }
+  background-color: $primary-color;
 }
 
+// left section
+.left{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+}
 
+// menu
+.menu-container{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.menu{
+  height: 37%;
+  width: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu div{
+  width: 100%;
+  height: 0.15rem;
+  background-color: $third-color;
+}
+
+//brand section
+.brand{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.brand .logo{
+  width: 2.5rem;
+  background-color: $third-color;
+  border-radius: 20%;
+}
+.brand .name{
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: $third-color;
+}
+
+// right section
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+}
+.right a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  transition: $secondary-color 0.2s ease;
+}
+
+.right a:hover{
+  background-color: $secondary-color;
+}
+
+.right img{
+  width: 1.7rem;
+  height: 1.3rem;
+}
+
+.right .user{
+  width: 2.1rem;
+  border-radius: 50%;
+}
 // Content Area
 .container {
   margin-left: 250px; // Space for the sidebar
   flex-grow: 1;
   padding: 20px;
   margin-top: 70px; // Ajusta el contenido para evitar superposición
-
+  transition: margin-left 0.5s ease;
 }
+
+.sidebar.menu-toggle ~ .container {
+  margin-left: 150px; // Reduce el margen cuando la barra lateral está colapsada
+}
+
 
 .conTouter {
   padding: 20px;
@@ -69,7 +140,62 @@ body {
   padding: 0px;
 }
 
+.sidebar{
+  margin-top: 2rem;
+  width: 16rem;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 1.1rem 0;
+  overflow-y: auto;
+  background-color: $primary-color;
+  transition: width 0.5s ease;
 
+  .menu-text {
+    display: inline-block;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    white-space: nowrap; // Evita que el texto se rompa en varias líneas
+  }
+
+  &.menu-toggle{
+    width: 4rem;
+
+    .menu-text {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+  a svg {
+    min-width: 1.2rem;
+    min-height: 1.2rem;
+    transition: 0.5 ease;
+  }
+  } 
+}
+
+
+.sidebar a{
+  display: flex;
+  align-items: center;
+  gap:1.3rem;
+  padding: 0.9rem 0.7rem;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  border-radius: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  color: $third-color;
+}
+
+.sidebar ul{
+  padding-left: 0;
+}
+
+.sidebar a:hover{
+  background-color: $secondary-color;
+}
 
 // Estilo para el h1
 /*

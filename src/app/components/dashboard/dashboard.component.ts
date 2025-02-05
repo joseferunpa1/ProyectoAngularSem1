@@ -17,9 +17,15 @@ export class DashboardComponent implements OnInit {
 
   constructor(public action: ActionsService) { }
 
+  isSidebarToggled = false;
+
   ngOnInit(): void {}
 
   deleteAnswer(){ this.action.deleteAnswer(); }
 
-  
+  toggleSidebar() {
+    this.isSidebarToggled = !this.isSidebarToggled;
+    console.log('Sidebar toggled:', this.isSidebarToggled);
+  }
+
 }
