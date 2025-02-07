@@ -1,91 +1,179 @@
-// Sidebar
-.sidebar {
-    width: 250px;
-    height: 100%;
-    position: fixed;
-    top: 60px;  // Ajusta el espacio para que esté debajo del header
-    left: 0;
-    background-color: #003844; // Fondo en color principal
-    color: white;
-    padding-top: 20px;
-    z-index: 5; // Asegura que el sidebar esté encima del fondo
-  
-    .sidebar-header {
-      padding: 20px 0;
-      h3 {
-        font-size: 22px;
-        font-weight: 600;
-        color: #fff;
-      }
-    }
-  
-    ul {
-      padding: 0;
-      margin: 0;
-      list-style-type: none;
-  
-      li {
-        padding: 15px;
-        transition: background-color 0.3s ease;
-  
-        &:hover {
-          background-color: #058C42; // Color secundario al pasar el cursor
-        }
-  
-        a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            display: flex; // Usamos flexbox para alinear el ícono y el texto
-            align-items: center; // Centra el ícono y el texto verticalmente
-            padding: 10px 0;
-            text-align: left; // Alineamos el texto a la izquierda
-    
-            i {
-              margin-right: 20px; // Añadimos espacio entre el ícono y el texto
-            }
-  
-          &:hover {
-            color: #f9f9f9; // Color blanco al pasar el cursor
-          }
-        }
-      }
-    }
+// Variables de color
+$primary-color: #003844;
+$secondary-color: #058C42;
+$third-color: #f9f9f9;
+
+.main {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  .container-fluid {
+    display: flex;
+    flex-grow: 1;
   }
-  
- // Header de navegación
-header.navbar {
-    z-index: 10;
+}
+
+//sidebar  
+  .sidebar{
+    margin-top: 2rem;
+    width: 13.5rem;
+    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    background-color: #003844; // Cambio aquí: el color ahora es el mismo que el del menú lateral
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    padding: 1.1rem 0;
+    overflow-y: auto;
+    background-color: $primary-color;
+    transition: width 0.5s ease;
   
-    .navbar-brand {
-      font-size: 22px;
-      font-weight: bold;
-      color: #f9f9f9; // Blanco para el logo
+    .menu-text {
+      display: inline-block;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      white-space: nowrap; // Evita que el texto se rompa en varias líneas
     }
   
-    .navbar-nav .nav-link {
-      color: #f9f9f9; // Color de los enlaces en blanco
+    &.menu-toggle{
+      width: 4rem;
   
-      &:hover {
-        color: #058C42; // El color verde al pasar el cursor para combinar con la paleta
+      .menu-text {
+        opacity: 0;
+        visibility: hidden;
       }
+  
+    a svg {
+      min-width: 1.2rem;
+      min-height: 1.2rem;
+      transition: 0.5 ease;
     }
+    } 
   }
   
   
+  .sidebar a{
+    display: flex;
+    align-items: center;
+    gap:1.3rem;
+    padding: 0.9rem 0.7rem;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    border-radius: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    color: $third-color;
+  }
+  
+  .sidebar ul{
+    padding-left: 0;
+  }
+  
+  .sidebar a:hover{
+    background-color: $secondary-color;
+  }
+  
+  // header
+
+header{
+  z-index: 200;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.45rem 2rem 0.45rem 1.27rem;
+  border-color: #f9f9f9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $primary-color;
+}
+
+// left section
+.left{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+}
+
+// menu
+.menu-container{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.menu{
+  height: 37%;
+  width: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu div{
+  width: 100%;
+  height: 0.15rem;
+  background-color: $third-color;
+}
+
+//brand section
+.brand{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.brand .logo{
+  width: 2.5rem;
+  background-color: $third-color;
+  border-radius: 20%;
+}
+.brand .name{
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: $third-color;
+}
+
+// right section
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+}
+.right a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  transition: $secondary-color 0.2s ease;
+}
+
+.right a:hover{
+  background-color: $secondary-color;
+}
+
+.right img{
+  width: 1.7rem;
+  height: 1.3rem;
+}
+
+.right .user{
+  width: 2.1rem;
+  border-radius: 50%;
+}
+  
+  
   // Main Content Area
-  .content {
-    margin-left: 250px;  // Deja espacio para el sidebar
-    margin-top: 60px;    // Agrega un margen para el header fijo
+  .container {
+    margin-left: 200px;  // Deja espacio para el sidebar
+    margin-top: 30px;    // Agrega un margen para el header fijo
     padding: 20px;
     background-color: #f9f9f9; // Fondo en color claro
     color: #333; // Color de texto general
+    transition: margin-left 0.5s ease;
+    flex-grow: 1;
+  
   
     h2 {
       font-size: 2rem;
@@ -149,27 +237,49 @@ header.navbar {
     }
   }
   
+  .conTouter {
+    padding: 20px;
+    flex-grow: 1;
+    margin-top: 70px;
+  }
+
+  .sidebar.menu-toggle ~ .container {
+    margin-left: 80px; // Reduce el margen cuando la barra lateral está colapsada
+  }
+  
+  
   // Media Queries para pantallas más pequeñas
-  @media (max-width: 768px) {
-    .wrapper {
-      flex-direction: column;
+  @media screen and (max-width: 768px) {
+    
+    .container{
+      margin-left: 40px;
+      margin-top: 100px;  // Ajusta para el header fijo en dispositivos pequeños
     }
+    .sidebar.menu-toggle ~ .container {
+      margin-left: 40px; // Reduce el margen cuando la barra lateral está colapsada
+    }
+    .menu{
+      height: 20%;
+      width: 1.1rem;
+    }
+    
+    .brand .logo{
+      margin: 0.5rem;
+    }
+
+    .brand .name{
+      font-size: 1.2rem;
+    }
+
+    .right .icons-header{
+      display: none;
+    }
+   .sidebar{
+    margin-top: 4rem;
+    width: 12rem;
+   }
+
   
-    .sidebar {
-      width: 100%;
-      position: relative;
-      height: auto;
-      padding-bottom: 20px;
-      top: auto;
-    }
-  
-    .content {
-      margin-left: 0;
-      margin-top: 60px;  // Ajusta para el header fijo en dispositivos pequeños
-    }
-  
-    header.navbar {
-      position: relative;
-    }
+    
   }
   

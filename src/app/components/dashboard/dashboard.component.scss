@@ -23,7 +23,6 @@ body {
   }
 }
 
-// Sidebar
 
 // header
 
@@ -197,29 +196,32 @@ header{
   background-color: $secondary-color;
 }
 
-// Estilo para el h1
-/*
-h1 {
-  font-family: 'Dancing Script', cursive; // Fuente cursiva
-  font-size: 4rem; // Tamaño grande para destacar
-  font-weight: 700; // Grosor de la fuente
-  color: $secondary-color; // Usar el color secundario
-  text-align: center;
-  margin-top: 20px;
-  animation: bounce 2s infinite; // Animación de rebote
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); // Sombra suave
-}
-*/
+@media screen and (max-width: 768px) {
+    
+  .container{
+    margin-left: 40px;
+    margin-top: 100px;  // Ajusta para el header fijo en dispositivos pequeños
+  }
+  .sidebar.menu-toggle ~ .container {
+    margin-left: 40px; // Reduce el margen cuando la barra lateral está colapsada
+  }
+  .menu{
+    height: 20%;
+    width: 1.1rem;
+  }
+  
+  .brand .logo{
+    margin: 0.5rem;
+  }
 
-// Animación de rebote
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
+  .right .icons-header{
+    display: none;
   }
-  40% {
-    transform: translateY(-20px);
-  }
-  60% {
-    transform: translateY(-10px);
-  }
+ .sidebar{
+  margin-top: 4rem;
+  width: 12rem;
+ }
+
+
+  
 }
