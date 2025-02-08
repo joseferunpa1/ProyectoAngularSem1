@@ -79,18 +79,18 @@ scrollToBottom() {
     }
   }
 
-  delete() {
-    this.preguntas.removeAt(this.item);
-    this.isModalVisible = false;
+  openModal(item: number) {
+    this.selectedItem = item;
+    this.isModalVisible = true;
   }
-
+  
   closeModal() {
     this.isModalVisible = false;
   }
-
-  openModal(item: any) {
-    this.selectedItem = item;
-    this.isModalVisible = true;
+  
+  delete() {
+    this.preguntas.removeAt(this.selectedItem);
+    this.closeModal();
   }
 
   itemValue(i: any) {

@@ -1,9 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgIf } from '@angular/common';
-import { Input } from '@angular/core';
-import { ActionsService } from '../services/actions.service';
-import { Output } from '@angular/core';
-import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-modal',
@@ -13,22 +9,18 @@ import { EventEmitter } from '@angular/core';
   styleUrl: './modal.component.scss'
 })
 export class ModalComponent {
-  isModalVisible: boolean = false;
-  selectedItem: any;
   @Input() isVisible: boolean = false;
-  @Output() close = new EventEmitter<void>();
-  showModal = false;
+  @Input() title: string = 'Confirmación';
+  @Input() message: string = '¿Estás seguro de realizar esta acción?';
 
-  constructor(public action: ActionsService) { }
+  @Output() close = new EventEmitter<void>();
+  @Output() confirm = new EventEmitter<void>();
 
   closeModal() {
     this.close.emit();
   }
 
-  
-  deleteAnswer() {
-    this.action.deleteAnswer();
-    this.isModalVisible = false;
+  confirmAction() {
+    this.confirm.emit();
   }
-  
 }

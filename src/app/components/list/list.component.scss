@@ -1,98 +1,151 @@
 /* Estilo global para las tarjetas */
 .card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 15px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  .card-header {
+    padding: 10px 15px;
+    background-color: #003844;
+    color: #fff;
+    border-radius: 8px 8px 0 0;
+
+    h3 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+  }
+  
+  .card-content {
+    padding: 15px;
+
+    p {
+      font-size: 1rem;
+      color: #333;
+    }
+  }
+  
+  .card-actions {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; // Permite que los botones se acomoden en pantallas pequeñas
     padding: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    
-    .card-header {
-      padding: 10px 15px;
-      background-color: #003844;
-      color: #fff;
-      border-radius: 8px 8px 0 0;
-      h3 {
-        margin: 0;
-        font-size: 1.25rem;
-        font-weight: bold;
-      }
-    }
-    
-    .card-content {
-      padding: 15px;
-      p {
-        font-size: 1rem;
-        color: #333;
-      }
-    }
-    
-    .card-actions {
+    gap: 10px; // Espaciado entre botones
+
+    .btn {
       display: flex;
-      justify-content: space-between;
-      padding: 10px;
-      
-      .btn {
-        display: flex;
-        align-items: center;
-        padding: 8px 15px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 0.9rem;
-        transition: background-color 0.3s ease;
-        
-        &.btn-danger {
-          background-color: #e57373;
-          color: #fff;
-          
-          &:hover {
-            background-color: #d32f2f;
-          }
-        }
-        
-        &.btn-primary {
-          background-color: #058C42;
-          color: #fff;
-          
-          &:hover {
-            background-color: #007b28;
-          }
-        }
-        
-        &.btn-success {
-          background-color: #4CAF50;
-          color: #fff;
-          
-          &:hover {
-            background-color: #388e3c;
-          }
-        }
-  
-        svg {
-          margin-right: 8px;
-          width: 16px;
-          height: 16px;
+      align-items: center;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+
+      &.btn-danger {
+        background-color: #e57373;
+        color: #fff;
+        &:hover {
+          background-color: #d32f2f;
         }
       }
-    }
-    
-    /* Estilo cuando no hay encuestas */
-    .noEncuestas {
-      padding: 20px;
-      text-align: center;
-      color: #777;
+
+      &.btn-primary {
+        background-color: #058C42;
+        color: #fff;
+        &:hover {
+          background-color: #007b28;
+        }
+      }
+
+      &.btn-success {
+        background-color: #4CAF50;
+        color: #fff;
+        &:hover {
+          background-color: #388e3c;
+        }
+      }
+
+      svg {
+        margin-right: 8px;
+        width: 16px;
+        height: 16px;
+      }
     }
   }
-  
-  /* Estilo para botones adicionales */
-  .resultButton {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    color: #003844;
-  
-    &:hover {
-      background-color: #f1f1f1;
+
+  /* Estilo cuando no hay encuestas */
+  .noEncuestas {
+    padding: 20px;
+    text-align: center;
+    color: #777;
+  }
+}
+
+/* Estilo para botones adicionales */
+.resultButton {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  color: #003844;
+
+  &:hover {
+    background-color: #f1f1f1;
+  }
+}
+
+/* Media Queries para responsive */
+@media (max-width: 768px) {
+  .card {
+    margin: 10px;
+    padding: 8px;
+
+    .card-header {
+      h3 {
+        font-size: 1.1rem;
+      }
+    }
+
+    .card-content {
+      p {
+        font-size: 0.9rem;
+      }
+    }
+
+    .card-actions {
+      flex-direction: column; // Los botones se apilan verticalmente en pantallas pequeñas
+      align-items: center;
+
+      .btn {
+        width: 100%; // Ocupa el ancho completo en móviles
+        justify-content: center;
+      }
     }
   }
-  
+}
+
+@media (max-width: 480px) {
+  .card {
+    margin: 5px;
+    padding: 5px;
+
+    .card-header {
+      h3 {
+        font-size: 1rem;
+      }
+    }
+
+    .card-content {
+      p {
+        font-size: 0.85rem;
+      }
+    }
+
+    .card-actions {
+      gap: 5px; // Reduce espacio entre botones
+    }
+  }
+}

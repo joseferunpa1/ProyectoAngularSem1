@@ -138,9 +138,20 @@ form {
           color: $dark-gray;
         }
       
-        input,
-        select {
+        input{
           max-width: 100%; // Asegura que no exceda el ancho del contenedor
+          width: auto; // Permite que se ajuste automáticamente
+          padding: 10px; // Espaciado interno
+          border-bottom: 1px solid $dark-gray; // Borde estético
+          border-radius: $border-radius; // Esquinas redondeadas
+          font-size: 14px; // Tamaño de fuente claro
+          box-sizing: border-box;
+        }
+        select {
+          -webkit-appearance: menulist-button; /* Restaurar la apariencia de la flecha */
+          -moz-appearance: none;
+          appearance: menulist-button;
+          max-width: 50%; // Asegura que no exceda el ancho del contenedor
           width: auto; // Permite que se ajuste automáticamente
           padding: 10px; // Espaciado interno
           border: 1px solid $dark-gray; // Borde estético
@@ -149,10 +160,7 @@ form {
           box-sizing: border-box; // Incluye padding y borde en el ancho total
         }
       
-        // Ajuste estético para que los campos no toquen los bordes del contenedor
-        input {
-          margin-bottom: 16px; // Espacio debajo de cada campo
-        }
+
       }
       
     }
@@ -190,5 +198,22 @@ form {
       color: #5cb85c;
       border: 1px solid #5cb85c;
     }
+  }
+}
+
+.content-pregunta {
+  padding: 20px 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin: 10px 10px 10px;
+  max-width: 100%; // Evita que sobresalga del formulario
+  box-sizing: border-box; // Asegura que el padding y border se incluyan en el ancho total
+  
+  small {
+    display: block;
+    font-size: 1rem;
+    font-weight: 900;
+    color: #333;
+    word-wrap: break-word; // Evita desbordamientos de texto
   }
 }
