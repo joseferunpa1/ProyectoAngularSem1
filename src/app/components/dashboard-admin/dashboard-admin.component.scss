@@ -7,6 +7,7 @@ $third-color: #f9f9f9;
   display: flex;
   height: 100vh;
   flex-direction: column;
+
   .container-fluid {
     display: flex;
     flex-grow: 1;
@@ -14,66 +15,66 @@ $third-color: #f9f9f9;
 }
 
 //sidebar  
-  .sidebar{
-    margin-top: 2rem;
-    width: 13.5rem;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    padding: 1.1rem 0;
-    overflow-y: auto;
-    background-color: $primary-color;
-    transition: width 0.5s ease;
-  
+.sidebar {
+  margin-top: 2rem;
+  width: 13.5rem;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 1.1rem 0;
+  overflow-y: auto;
+  background-color: $primary-color;
+  transition: width 0.5s ease;
+
+  .menu-text {
+    display: inline-block;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    white-space: nowrap; // Evita que el texto se rompa en varias líneas
+  }
+
+  &.menu-toggle {
+    width: 4rem;
+
     .menu-text {
-      display: inline-block;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-      white-space: nowrap; // Evita que el texto se rompa en varias líneas
+      opacity: 0;
+      visibility: hidden;
     }
-  
-    &.menu-toggle{
-      width: 4rem;
-  
-      .menu-text {
-        opacity: 0;
-        visibility: hidden;
-      }
-  
+
     a svg {
       min-width: 1.2rem;
       min-height: 1.2rem;
       transition: 0.5 ease;
     }
-    } 
   }
-  
-  
-  .sidebar a{
-    display: flex;
-    align-items: center;
-    gap:1.3rem;
-    padding: 0.9rem 0.7rem;
-    text-decoration: none;
-    margin: 0 0.5rem;
-    border-radius: 0.5rem;
-    white-space: nowrap;
-    overflow: hidden;
-    color: $third-color;
-  }
-  
-  .sidebar ul{
-    padding-left: 0;
-  }
-  
-  .sidebar a:hover{
-    background-color: $secondary-color;
-  }
-  
-  // header
+}
 
-header{
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+  padding: 0.9rem 0.7rem;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  border-radius: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  color: $third-color;
+}
+
+.sidebar ul {
+  padding-left: 0;
+}
+
+.sidebar a:hover {
+  background-color: $secondary-color;
+}
+
+// header
+
+header {
   z-index: 200;
   width: 100%;
   display: flex;
@@ -87,7 +88,7 @@ header{
 }
 
 // left section
-.left{
+.left {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,13 +96,14 @@ header{
 }
 
 // menu
-.menu-container{
+.menu-container {
   height: 100%;
   display: flex;
   align-items: center;
   cursor: pointer;
 }
-.menu{
+
+.menu {
   height: 37%;
   width: 1.5rem;
   display: flex;
@@ -109,26 +111,27 @@ header{
   justify-content: space-between;
 }
 
-.menu div{
+.menu div {
   width: 100%;
   height: 0.15rem;
   background-color: $third-color;
 }
 
 //brand section
-.brand{
+.brand {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
 }
 
-.brand .logo{
+.brand .logo {
   width: 2.5rem;
   background-color: $third-color;
   border-radius: 20%;
 }
-.brand .name{
+
+.brand .name {
   font-size: 1.5rem;
   font-weight: 900;
   color: $third-color;
@@ -141,7 +144,8 @@ header{
   justify-content: center;
   gap: 1.6rem;
 }
-.right a{
+
+.right a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -149,137 +153,139 @@ header{
   transition: $secondary-color 0.2s ease;
 }
 
-.right a:hover{
+.right a:hover {
   background-color: $secondary-color;
 }
 
-.right img{
+.right img {
   width: 1.7rem;
   height: 1.3rem;
 }
 
-.right .user{
+.right .user {
   width: 2.1rem;
   border-radius: 50%;
 }
-  
-  
-  // Main Content Area
-  .container {
-    margin-left: 200px;  // Deja espacio para el sidebar
-    margin-top: 30px;    // Agrega un margen para el header fijo
-    padding: 20px;
-    background-color: #f9f9f9; // Fondo en color claro
-    color: #333; // Color de texto general
-    transition: margin-left 0.5s ease;
-    flex-grow: 1;
-  
-  
-    h2 {
-      font-size: 2rem;
-      font-weight: 600;
+
+
+// Main Content Area
+.container {
+  margin-left: 200px; // Deja espacio para el sidebar
+  margin-top: 30px; // Agrega un margen para el header fijo
+  padding: 20px;
+  background-color: #f9f9f9; // Fondo en color claro
+  color: #333; // Color de texto general
+  transition: margin-left 0.5s ease;
+  flex-grow: 1;
+
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #003844; // Títulos en color principal
+  }
+
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    background-color: #ffffff; // Fondo blanco para las tarjetas
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-body {
+      padding: 2rem;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: bold;
       color: #003844; // Títulos en color principal
     }
-  
-    .card {
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
-      background-color: #ffffff; // Fondo blanco para las tarjetas
-  
-      &:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-      }
-  
-      .card-body {
-        padding: 2rem;
-      }
-  
-      .card-title {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #003844; // Títulos en color principal
-      }
-  
-      .card-text {
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-      }
-  
-      .btn {
-        padding: 12px 24px;
-        font-size: 1.1rem;
-        font-weight: 500;
-        border-radius: 5px;
-  
-        &.btn-primary {
-          background-color: #007bff; // Azul para el botón de "Gestionar Usuarios"
-          color: #fff; // Texto blanco en los botones
-          border: none;
-  
-          &:hover {
-            background-color: #0056b3; // Azul más oscuro al pasar el cursor
-          }
-        }
 
-  
-        &.btn-success {
-          background-color: #058C42; // Verde para el botón de "Gestionar Encuestas"
-          color: #fff;
-          border: none;
-  
-          &:hover {
-            background-color: #046c31; // Verde más oscuro al pasar el cursor
-          }
+    .card-text {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border-radius: 5px;
+
+      &.btn-primary {
+        background-color: #007bff; // Azul para el botón de "Gestionar Usuarios"
+        color: #fff; // Texto blanco en los botones
+        border: none;
+
+        &:hover {
+          background-color: #0056b3; // Azul más oscuro al pasar el cursor
+        }
+      }
+
+
+      &.btn-success {
+        background-color: #058C42; // Verde para el botón de "Gestionar Encuestas"
+        color: #fff;
+        border: none;
+
+        &:hover {
+          background-color: #046c31; // Verde más oscuro al pasar el cursor
         }
       }
     }
   }
-  
-  .conTouter {
-    padding: 20px;
-    flex-grow: 1;
-    margin-top: 70px;
+}
+
+.conTouter {
+  padding: 20px;
+  flex-grow: 1;
+  margin-top: 70px;
+}
+
+.sidebar.menu-toggle~.container {
+  margin-left: 80px; // Reduce el margen cuando la barra lateral está colapsada
+}
+
+
+// Media Queries para pantallas más pequeñas
+@media screen and (max-width: 768px) {
+
+  .container {
+    margin-left: 40px;
+    margin-top: 100px; // Ajusta para el header fijo en dispositivos pequeños
   }
 
-  .sidebar.menu-toggle ~ .container {
-    margin-left: 80px; // Reduce el margen cuando la barra lateral está colapsada
+  .sidebar.menu-toggle~.container {
+    margin-left: 40px; // Reduce el margen cuando la barra lateral está colapsada
   }
-  
-  
-  // Media Queries para pantallas más pequeñas
-  @media screen and (max-width: 768px) {
-    
-    .container{
-      margin-left: 40px;
-      margin-top: 100px;  // Ajusta para el header fijo en dispositivos pequeños
-    }
-    .sidebar.menu-toggle ~ .container {
-      margin-left: 40px; // Reduce el margen cuando la barra lateral está colapsada
-    }
-    .menu{
-      height: 20%;
-      width: 1.1rem;
-    }
-    
-    .brand .logo{
-      margin: 0.5rem;
-    }
 
-    .brand .name{
-      font-size: 1.2rem;
-    }
+  .menu {
+    height: 20%;
+    width: 1.1rem;
+  }
 
-    .right .icons-header{
-      display: none;
-    }
-   .sidebar{
+  .brand .logo {
+    margin: 0.5rem;
+  }
+
+  .brand .name {
+    font-size: 1.2rem;
+  }
+
+  .right .icons-header {
+    display: none;
+  }
+
+  .sidebar {
     margin-top: 4rem;
     width: 12rem;
-   }
-
-  
-    
   }
-  
+
+
+
+}

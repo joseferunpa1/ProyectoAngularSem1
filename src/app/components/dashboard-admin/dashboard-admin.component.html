@@ -1,72 +1,62 @@
-  <div class="main">
-    <div class="container-fluid">
+<div class="main">
+  <div class="container-fluid">
 
-           <!-- Header -->
-<header>
-  <div class="left">
-    <div class="menu-container"> 
-      <div class="menu" (click)="toggleSidebar()">
-        <div></div>
-        <div></div>
-        <div></div>
+    <!-- Header -->
+    <header>
+      <div class="left">
+        <div class="menu-container">
+          <div class="menu" (click)="toggleSidebar()" (keydown)="toggleSidebar()">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="brand">
+          <img src="assets/images/logogi2t.svg" alt="icon-git2" class="logo">
+          <span class="name">Panel de Administración</span>
+        </div>
       </div>
+
+      <div class="right">
+        <a href="#" class="icons-header">
+          <img src="assets/images/icons/chat.png" alt="chat">
+        </a>
+        <a href="#" class="icons-header">
+          <img src="assets/images/icons/question.png" alt="questions">
+        </a>
+        <a href="#" class="icons-header">
+          <img src="assets/images/icons/notification.svg" alt="notifications">
+        </a>
+        <a href="#">
+          <img src="assets/images/icons/user.png" alt="img-user" class="user">
+        </a>
+
+      </div>
+    </header>
+
+
+    <!-- Sidebar -->
+    <div [class.menu-toggle]="isSidebarToggled" class="sidebar" id="sidebar">
+      <nav>
+        <ul>
+          <li>
+            <a [routerLink]="['/dashboard-admin']" routerLinkActive="router-link-active">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-fill" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                <path fill-rule="evenodd"
+                  d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+              </svg>
+              <span class="menu-text">Inicio</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
-    <div class="brand">
-      <img src="assets/images/logogi2t.svg" alt="icon-git2" class="logo">
-      <span class="name">Panel de Administración</span>
-    </div>
-  </div>
 
-  <div class="right">   
-    <a href="#" class="icons-header">
-      <img src="assets/images/icons/chat.png" alt="chat">
-    </a>
-    <a href="#" class="icons-header">
-      <img src="assets/images/icons/question.png" alt="questions">
-    </a>
-    <a href="#" class="icons-header">
-      <img src="assets/images/icons/notification.svg" alt="notifications">
-    </a>
-    <a href="#">
-      <img src="assets/images/icons/user.png" alt="img-user" class="user">
-    </a>
-
-  </div>
-</header>
-
-  
-<!-- Sidebar -->
-<div [class.menu-toggle]="isSidebarToggled" class="sidebar" id="sidebar">
-  <nav>
-    <ul>
-    <li>
-      <a [routerLink]="['/dashboard-admin']" routerLinkActive="router-link-active">
-        <svg
-          width="1em"
-          height="1em"
-          viewBox="0 0 16 16"
-          class="bi bi-house-fill"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"
-          />
-          <path
-            fill-rule="evenodd"
-            d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"
-          />
-        </svg>
-        <span class="menu-text">Inicio</span>
-      </a>
-    </li>
-    </ul>
-  </nav>
-  </div>
-  
-      <!-- Content -->
-      <div class="container conTouter">
+    <!-- Content -->
+    <div class="container conTouter">
 
       <h2 class="mb-4">Bienvenido al Panel de Administración</h2>
       <div class="row">
@@ -75,7 +65,8 @@
           <div class="card shadow-lg border-primary">
             <div class="card-body text-center">
               <h5 class="card-title text-primary">Gestionar Usuarios</h5>
-              <p class="card-text">Administra los usuarios registrados en la plataforma. Agrega, edita o elimina usuarios fácilmente.</p>
+              <p class="card-text">Administra los usuarios registrados en la plataforma. Agrega, edita o elimina
+                usuarios fácilmente.</p>
               <button class="btn btn-primary" (click)="navigateToAnother()">Gestionar Usuarios</button>
             </div>
           </div>
@@ -86,15 +77,14 @@
           <div class="card shadow-lg border-success">
             <div class="card-body text-center">
               <h5 class="card-title text-success">Gestionar Encuestas</h5>
-              <p class="card-text">Crea, edita y administra encuestas. Visualiza los resultados y gestiona las opciones de cada encuesta.</p>
+              <p class="card-text">Crea, edita y administra encuestas. Visualiza los resultados y gestiona las opciones
+                de cada encuesta.</p>
               <button class="btn btn-success" (click)="navigateTo()">Gestionar Encuestas</button>
             </div>
           </div>
         </div>
       </div>
 
-      </div>
     </div>
   </div>
-  
-  
+</div>

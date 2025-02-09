@@ -1,9 +1,8 @@
-import { Component, OnInit} from '@angular/core';
-import { FormGroup, FormControl, Validators, FormArray,ReactiveFormsModule } from '@angular/forms';
-import { ActionsService } from '../../services/actions.service'; 
-import { NgFor,NgIf } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormArray, ReactiveFormsModule } from '@angular/forms';
+import { ActionsService } from '../../services/actions.service';
+import { NgFor, NgIf } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AppComponent } from "../../app.component";
 import { ModalComponent } from "../../modal/modal.component";
 
 interface Pregunta {
@@ -13,15 +12,15 @@ interface Pregunta {
 @Component({
   selector: 'app-edit',
   standalone: true,
-  imports: [NgFor, NgIf, ReactiveFormsModule, AppComponent, ModalComponent],
+  imports: [NgFor, NgIf, ReactiveFormsModule, ModalComponent],
   templateUrl: '../nueva/nueva.component.html',
   styleUrl: '../nueva/nueva.component.scss'
 })
 export class EditComponent implements OnInit {
 
   public formAnswers = new FormGroup({
-      nameAnswer : new FormControl(null, Validators.required),
-      preguntas : new FormArray([])
+    nameAnswer: new FormControl(null, Validators.required),
+    preguntas: new FormArray([])
   });
   public preguntas = this.formAnswers.get('preguntas') as FormArray;
   public validated = false;
@@ -33,75 +32,81 @@ export class EditComponent implements OnInit {
 
 
   constructor(public action: ActionsService, public rutaActiva: ActivatedRoute, public ruta: Router) {
-      this.ID = rutaActiva.snapshot.params['ID'];
-      action.dA.subscribe(a => {
-          if (a === 'deleteItem'){ this.delete(); }
-      });
+    this.ID = rutaActiva.snapshot.params['ID'];
+    action.dA.subscribe(a => {
+      if (a === 'deleteItem') { this.delete(); }
+    });
   }
 
   ngOnInit(): void {
-      const encuesta = this.action.getEncuestas(this.ID)[0];
-      this.formAnswers.setValue({nameAnswer: encuesta.nameAnswer, preguntas: []});
-      // Declara el tipo de cada elemento como Pregunta
-      encuesta.preguntas.forEach((e: Pregunta) => {
-        this.preguntas.push(new FormGroup({
-          pregunta: new FormControl(e.pregunta, Validators.required),
-          tipo: new FormControl(e.tipo, Validators.required)
-        }));
-      });
-      
+    const encuesta = this.action.getEncuestas(this.ID)[0];
+    this.formAnswers.setValue({ nameAnswer: encuesta.nameAnswer, preguntas: [] });
+    // Declara el tipo de cada elemento como Pregunta
+    encuesta.preguntas.forEach((e: Pregunta) => {
+      this.preguntas.push(new FormGroup({
+        pregunta: new FormControl(e.pregunta, Validators.required),
+        tipo: new FormControl(e.tipo, Validators.required)
+      }));
+    });
+
 
   }
   getPregunta(index: number): FormGroup {
     return this.preguntas.at(index) as FormGroup;
   }
 
-newAnswer(){
-  this.preguntas.push(new FormGroup({
-    pregunta: new FormControl(null, Validators.required),
-    tipo: new FormControl(null, Validators.required)
-  }));
+  newAnswer() {
+    this.preguntas.push(new FormGroup({
+      pregunta: new FormControl(null, Validators.required),
+      tipo: new FormControl(null, Validators.required)
+    }));
 
-  this.scrollToBottom();
-}
-scrollToBottom() {
-  setTimeout(() => {
-    window.scrollTo({
-      top: document.body.scrollHeight, // Desplaza al final de la página
-      behavior: 'smooth' // Añade un efecto de desplazamiento suave
-    });
-  }, 100); // Pequeño retraso para asegurar que el DOM se actualice
-}
-
-  save(){
-      if (this.formAnswers.invalid !== true){
-          const res = this.action.updateStorage(this.formAnswers.value, this.ID);
-          if (res){
-              this.dateSave = true;
-              this.formAnswers.reset();
-              this.preguntas.clear();
-              setTimeout(() => {this.ruta.navigate(['/dashboard/list']); }, 1000);
-          }
-      }else{
-          this.validated = true;
-          setTimeout(() => {this.validated = false; }, 5000);
-      }
+    this.scrollToBottom();
+  }
+  scrollToBottom() {
+    setTimeout(() => {
+      window.scrollTo({
+        top: document.body.scrollHeight, // Desplaza al final de la página
+        behavior: 'smooth' // Añade un efecto de desplazamiento suave
+      });
+    }, 100); // Pequeño retraso para asegurar que el DOM se actualice
   }
 
-delete(){ 
-  this.preguntas.removeAt(this.item);
-  this.isModalVisible = false; 
+  save() {
+    if (this.formAnswers.invalid !== true) {
+      const res = this.action.updateStorage(this.formAnswers.value, this.ID);
+      if (res) {
+        this.dateSave = true;
+        this.formAnswers.reset();
+        this.preguntas.clear();
+        setTimeout(() => { this.ruta.navigate(['/dashboard/list']); }, 1000);
+      }
+    } else {
+      this.validated = true;
+      setTimeout(() => { this.validated = false; }, 5000);
+    }
+  }
+
+  delete() {
+    this.preguntas.removeAt(this.item);
+    this.isModalVisible = false;
+  }
+
+  closeModal() {
+    this.isModalVisible = false;
+  }
+
+  openModal(item: any) {
+    this.selectedItem = item;
+    this.isModalVisible = true;
+  }
+
+  itemValue(i: any) { this.item = i; }
+
+  autoExpand(event: Event): void {
+    const textarea = event.target as HTMLTextAreaElement;
+    textarea.style.height = 'auto'; // Resetea la altura
+    textarea.style.height = textarea.scrollHeight + 'px'; // Ajusta según el contenido
+  }
 }
 
-closeModal() {
-  this.isModalVisible = false;
-}
-
-openModal(item: any) {
-  this.selectedItem = item;
-  this.isModalVisible = true;
-}
-
-itemValue(i: any){ this.item = i; }
-
-}

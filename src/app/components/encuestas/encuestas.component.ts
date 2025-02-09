@@ -14,7 +14,7 @@ export class EncuestasComponent implements OnInit {
   encuestas: any[] = [];
 
 
-  constructor(private action: ActionsService, private ruta: Router) { }
+  constructor(public action: ActionsService, public ruta: Router) { }
 
   ngOnInit(): void {
     this.encuestas = this.action.getEncuestas();

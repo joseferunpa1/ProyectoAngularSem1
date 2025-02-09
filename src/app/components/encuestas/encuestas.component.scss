@@ -14,7 +14,7 @@ $max-width-form: 600px;
   border-radius: $border-radius;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   max-width: 900px;
-  
+
   .row {
     margin-bottom: 20px;
   }
@@ -36,9 +36,10 @@ $max-width-form: 600px;
     }
 
     .login {
-         display: flex;
-         justify-content: flex-end; // Esto alinea el botón a la derecha
-         align-items: center; // Opcional: Centra el botón verticalmente si es necesario
+      display: flex;
+      justify-content: flex-end; // Esto alinea el botón a la derecha
+      align-items: center; // Opcional: Centra el botón verticalmente si es necesario
+
       button {
         padding: 10px 20px;
         background: $secondary-color;
@@ -70,7 +71,7 @@ $max-width-form: 600px;
       padding: 16px;
       border-radius: $border-radius;
       color: white;
-      
+
       .mat-card-title {
         font-size: 20px;
         font-weight: bold;
@@ -141,13 +142,14 @@ $max-width-form: 600px;
     .login {
       button {
         width: 25%;
-        
+
       }
     }
   }
 
   .example-card {
     padding: 16px;
+
     .mat-card-header {
       padding: 12px;
     }

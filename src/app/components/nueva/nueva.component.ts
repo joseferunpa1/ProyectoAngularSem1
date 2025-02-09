@@ -96,4 +96,12 @@ scrollToBottom() {
   itemValue(i: any) {
     this.item = i;
   }
+
+  autoExpand(event: Event): void {
+    const textarea = event.target as HTMLTextAreaElement;
+    textarea.style.height = 'auto'; // Resetea la altura
+    textarea.style.height = textarea.scrollHeight + 'px'; // Ajusta según el contenido
+  }
 }
+
+
